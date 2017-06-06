@@ -41,7 +41,7 @@
 
 <!-- ================================Home navbar============================================= -->
 
- <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background:#00ffff; solid; padding:20px;">
   <div class="container-fluid">
 <!--     <div class="navbar-header">
   
@@ -63,6 +63,11 @@
    }
    
    %>
+   
+   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="Home">Home</a></li>
+   </button>
+  
   
       <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Blogs<span class="caret"></span></a>
@@ -182,31 +187,7 @@
         
         
         
-        <fieldset>
-
-<legend>Adding a blog</legend>
-<table cellpadding="2" cellspacing="2">
-<tr>
-<td>Blog-Title</td>
-<td><input type="text" ng-model="x.blog_name">
-</tr>
-
-
-<tr>
-<td valign="top">Blog-Name</td>
-<td><textarea row="10" cols="50" ng-model="x.description"></textarea>
-</tr>
-
-<tr>
-<td>&nbsp;</td>
-<td><input type="button" value="Add" ng-click="add()" >
-</tr>
-
-</table>
-
-
-</fieldset>
-        
+    
         
         
         </div>
@@ -222,70 +203,11 @@
 
  <!-- ====================================================== -->
 
-<div class="container">
-  <h2>List-Of-Blog</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open </button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Details</h4>
-        </div>
-        <div class="modal-body">
-        
-        
-                  <table class="table table-hover">
-                      <thead>
-                          <tr>
-                              <th>ID.</th>
-                              <th>UserByCreated</th>
-                              <th>Blog-name</th>
-                              <th>Date</th>
-                              <td>Likes</td>
-                              <th width="20%"></th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr ng-repeat="x in names">
-                              <td>{{x.id}}</td>
-                              <td>{{x.user_id}}</td>
-                              <td>{{x.blog_name}}</td>
-                              <td>{{x.create_date}}</td>
-                              <td>{{x.blog_like}}</td>
-                             
-                              <td>
-                              <button type="button" ng-click="customersCtrl.edit(x.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="customersCtrl.remove(x.id)" class="btn btn-danger custom-width">Remove</button>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-             
-
-        
-        
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-
 
 <!-- ============================================================ -->
 
-
-<p  class="text-info" ng-repeat = "x in names"> Description- <br> {{x.description}}
-</p>
+<h3 class="text-danger" ng-repeat = "x in names"> Blog-Name=>{{x.blog_name}}</h3>
+<p  class="text-info" ng-repeat = "x in names"> Description=> <br> {{x.description}}</p>
 
  
  

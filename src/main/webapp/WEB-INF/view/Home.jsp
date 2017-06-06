@@ -101,12 +101,12 @@ background="i1.jpg"
   
   
  <body ng-app="myApp" class="ng-cloak"  >
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background:#00ffff; solid; padding:20px;">
   <div class="container-fluid">
-<!--     <div class="navbar-header">
+    <div class="navbar-header">
   
       <a class="navbar-brand" href="#">Collaboration</a>
-    </div> -->
+    </div>
    <ul class="nav navbar-nav">
        <%
    String user=(String)session.getAttribute("loggedInUserID"); 
@@ -123,6 +123,9 @@ background="i1.jpg"
    }
    
    %>
+   
+   
+   
   
       <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Blogs<span class="caret"></span></a>
@@ -189,7 +192,7 @@ background="i1.jpg"
   
   <br><br><br>
  
-  
+   <br><br><br>
   
  </div>
  
@@ -203,7 +206,33 @@ background="i1.jpg"
 <!-- =========== -->
 </div>
 </div>
->
+ <br><br><br> <br><br><br>
+ 
+ <!--  ============================================================================== -->
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 <c:if test="${isUserClickedsingInPage==true}"><jsp:include page="singIn.jsp"></jsp:include></c:if>

@@ -31,7 +31,7 @@
 
 <!-- ================================Home navbar============================================= -->
 
- <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background:#00ffff; solid; padding:20px;">
   <div class="container-fluid">
 <!--     <div class="navbar-header">
   
@@ -53,6 +53,11 @@
    }
    
    %>
+  
+  <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="Home">Home</a></li>
+   </button>
+  
   
       <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Blogs<span class="caret"></span></a>

@@ -1,41 +1,37 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+  
+  
+   <style>
+         .Search {
+     position: absolute;
+     top: 355px;
+     left: 575px;
+}
+.Search input {
+     height: 50px;
+     width: 180pt;
+}
+        </style>
 <title>Insert title here</title>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-<!-- <style>
-body {
-    background-image: url("img/i1.jpg");
-}
-.no-background {
-    background-image: url("images/blank.jpg");
-}
-</style> -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-
-
 </head>
-<body>
- 
-
-<!-- ================================Home navbar============================================= -->
-
+ <body ng-app="myApp" class="ng-cloak"  >
   <nav class="navbar navbar-default navbar-fixed-top" style="background:#00ffff; solid; padding:20px;">
   <div class="container-fluid">
 <!--     <div class="navbar-header">
@@ -54,10 +50,15 @@ body {
    else
    {
 	   out.println("<li class='active'><a href='logout'>Logout</a></li>");
-	   out.println("<li> Welcome"+user+"</li>");
+	   out.println("<li> Welcome : "+user+"</li>");
    }
    
    %>
+   
+   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="Home">Home</a></li>
+   </button>
+  
   
       <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Blogs<span class="caret"></span></a>
@@ -123,8 +124,8 @@ body {
 </ul></div></nav>
   
   <br><br><br>
+ <br>
  
-  
   
  </div>
  
@@ -136,85 +137,51 @@ body {
 </div>
 </nav>
 <!-- =========== -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- =====================================List of profile ==================================== -->
-<br><br><br>
-<div ng-app="myApp" ng-controller="customersCtrl"> 
-
-<h1 class="text-danger" ng-repeat = "x in names"> Welcome  - {{x.name}} </h1>
-
-
-
-<table class="table">
-<thead>
-<tr>
-<th>ID</th>
-<th>NAME</th>
-<th>ADDRESS</th>
-<th>Online</th>
-
-
-
-</tr>
-</thead>
-<tbody>
- 
-
-<tr ng-repeat = "x in names">
-        <td>{{x.id}}</td>
-					 
-		<td>{{x.name}}</td>
-		
-		<td>{{x.address}}</td>
-		
-		
-		
-	
-		<td>{{x.isonline}}</td>
-		
-                     
-</tr>
-
-</tbody>
-  
-</table>
 </div>
-<script>
-var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-    $http.get("http://localhost:8080/Collaboration/Profile")
-    .then(function (response) {$scope.names = response.data;});
-});
-</script>
-<c:if test="${isUserClickedHomePage==true}"><jsp:include page="Home.jsp"></jsp:include></c:if>
+</div>
+ <br><br><br> 
+ <div class="generic-container" ng-controller="BlogController as ctrl">
+  <div class="panel panel-default">
+   <div class="panel-heading"><span class="lead"><img src='<c:url value='/static/images/2.jpg'/>'width="1000" height="150"/></span></div><br>
+   <div class="formcontainer">
+    <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+     <input type="hidden" ng-model="ctrl.blog.id" />
+           <div class="row">
+            <div class="form-group col-md-12">
+            <label class="col-md-2 control-lable" for="blog_name">Blog Title:</label>
+               <div class="col-md-7">
+               <input type="text" ng-model="ctrl.blog.blog_name" id="blog_name" class="title form-control input-sm" placeholder="Enter your blog title" required/>
+               </div> </div></div>
+           <div class="row">
+            <div class="form-group col-md-12">
+             <label class="col-md-2 control-lable" for="description">Description:</label>
+               <div class="col-md-7">
+               <textarea rows="8" cols="80" ng-model="ctrl.blog.description" id="description" class="form-control input-sm" placeholder="Enter your blog description." required>
+                </textarea> </div></div> </div> 
+        <div class="row">
+         <div class="form-actions floatRight">
+          <input type="submit"  value="{{!ctrl.blog.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+          <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Blog</button>
+           </div> </div> </form>
+                       <div class="container">
+                  <table class="table">
 
-<!-- ====================LIST OF PROFILE CLOSED=============================================== -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<tr ng-repeat="u in ctrl.blogs"><td><table><tr>
+<td ng-bind="u.dateTime">
+{{ u.dataTime |  date:'MM/dd/yyyy'}}</td></tr>
+<tr><td><table><tr><td> <img src='<c:url value='/static/images/{{ u.userID }}.jpeg' />' width="75" height="75"/></td></tr>
+<tr><td ng-bind="u.title">{{ u.blog_name }}</td><tr>
+<tr><td ng-bind="u.description">{{ u.description }}</td></tr>
+<tr><td><table>
+<th><td><button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button></td> </th>
+<th><td> <a href="manage_blog_remove?id={{ u.id }}"  onclick="return confirm('Are you sure?')">Remove</a> </td></th>
+ </table></td> </tr>
+</table></td><tr></table></td>
+</tr></table>
+               </div>  </div> </div></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+      <script src="<c:url value='/static/app.js' />"></script>
+      <script src="<c:url value='/static/blog_controller.js' />"></script>
+      <script src="<c:url value='/static/blog_service.js' />"></script>            
 </body>
 </html>

@@ -53,7 +53,7 @@
         </style>
   </head>
   <body ng-app="myApp" class="ng-cloak" >
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background:#00ffff; solid; padding:20px;">
   <div class="container-fluid">
    <!--  <div class="navbar-header">
       <a class="navbar-brand" href="#">Collaboration</a>

@@ -300,7 +300,14 @@ public class UserController {
 	
 	@RequestMapping(value="/showblog")
 	public ModelAndView showblog(){
-		return new ModelAndView("showblog");
+		String uid=(String)session.getAttribute("loggedInUserID");
+		if(uid==null)
+ 		{
+ 			return new ModelAndView("singIn");
+ 		}
+		ModelAndView obj=new ModelAndView("showblog");
+		
+	return obj;
 		
 	}
 	

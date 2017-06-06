@@ -41,7 +41,7 @@ public class BlogController {
 		String uid=(String)session.getAttribute("loggedInUserID");
 		if(uid==null)
  		{
- 			return new ModelAndView("login");
+ 			return new ModelAndView("singIn");
  		}
 		ModelAndView obj=new ModelAndView("blog");
 		
@@ -158,6 +158,6 @@ public class BlogController {
 	 		 blog.setErrorMessage("blog cannot be deleted");
 	 	     blog.setErrorCode("500");
 	 	 }
- 		  return new ModelAndView("viewblogs");
+ 		  return new ModelAndView("redirect:/blog");
        }
 	}
