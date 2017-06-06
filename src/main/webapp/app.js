@@ -66,3 +66,19 @@ collaboration3.controller('cnt3',function($csope,$http){
 		
 	});
 })
+
+
+var collabora1=angular.module('collbora1',['collaboraservice']);
+collabora1.controller('cntrl',function($scope,$http){
+	
+	var geturl="http://localhost:8080/Collaboration/NewFile"
+		$http.get(geturl).
+	     success(function(data1) {
+	         $scope.mydata1 = data1;
+	         
+	    });
+	
+})
+
+
+

@@ -37,20 +37,22 @@
       #login {background-color: pink;} </style>
 </head>
   <body ng-app="myApp" class="ng-cloak"  >
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+ <!-- ================================Home navbar============================================= -->
+
+ <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
-    <div class="navbar-header">
+<!--     <div class="navbar-header">
   
       <a class="navbar-brand" href="#">Collaboration</a>
-    </div>
+    </div> -->
    <ul class="nav navbar-nav">
        <%
    String user=(String)session.getAttribute("loggedInUserID"); 
    if(user==null)
    {
-	   out.println("<li class='active'><a href='login'>Login</a></li>"); 
+	   out.println("<button type='button' class='btn btn-default dropdown-toggle' style='margin:8px'><li class='active'><a href='login'>Login</a></li></button>"); 
 
-	   out.println("<li class='active'><a href='user'>Registration</a></li>");
+	   out.println("<button type='button' class='btn btn-default dropdown-toggle' style='margin:8px'><li class='active'><a href='user'>Registration</a></li></button");
    }
    else
    {
@@ -60,53 +62,109 @@
    
    %>
   
-      
+      <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Blogs<span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="blog">Add New Blog</a></li>
-      <li><a href="viewblog">Show List of Blogs</a></li>
+      <li><a href="showblog">Show List of Blogs</a></li>
     </ul></li>
-
+     </button>
+     
+     <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
   <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Friends<span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="unfriend">View Friends/Unfriend</a></li>
       <li ><a href="viewusers">Send Friend Request</a></li>
     <li ><a href="acceptrejectrequest">Accept/Reject Request</a></li>
     </ul></li>
-
+    </button>
+    
+    
+    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Jobs<span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="applyforjob">Search Job</a></li>
       <li><a href="job">Post New Jobs</a></li>
     </ul></li>
+    </button>
     
     
+    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Chat Forums<span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="chatforum">Create Chat Forum</a></li>
       <li><a href="viewchatforums">View Existing Forums</a></li>
     </ul></li>
+    </button>
+    
+    
+    
+    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
     <li class="active"><a href="personalchatting">Personal Chat</a></li>
- 
+    </button>
+     
+     <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
     <li class="active"><a href="updateprofile">Update Profile</a></li>
-    <li class="active"><a href="Blog">BLOG-LISTS</a></li>
-    <li class="active"><a href="Forum">FORUM-LISTS</a></li>
-    <li class="active"><a href="Chat">CHAT-LISTS</a></li>
-    <li class="active"><a href="Profile">PROFILE-LISTS</a></li>
+    </button>
+    
+    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="showblog">BLOG-LISTS</a></li>
+    </button>
+    
+    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="showforum">FORUM-LISTS</a></li>
+    </button>
+    
+    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="showchat">CHAT-LISTS</a></li>
+    </button>
+    
+    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="showprofile">PROFILE-LISTS</a></li>
+   </button>
    
 </ul></div></nav>
   
   <br><br><br>
+ 
   
   
+ </div>
+ 
+  
+  
+  
+</div>
+</div>
+</div>
+</nav>
+<!-- =========== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =====================================List of profile ==================================== -->
+<br><br><br>
+
+   
   
  
- <div  class="generic-container" ng-controller="LoginController as ctrl">
+ <div  class="generic-container text-center" ng-controller="LoginController as ctrl">
           <div class="panel panel-default">
-              <div class="panel-heading"><span class="lead"> <img src='<c:url value='/static/images/image9.jpg'/>'width="900" height="100"/></span></div>
+              <div class="panel-heading"> Login </div>
              <center>
+             <br>
               <div class="formcontainer">
-                  <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal" method ="post">
+                  <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal" method ="post" >
    
                       <div class="row">
                           <div class="form-group col-md-12">

@@ -5,103 +5,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="resource/css/mystyle.css">
- --><!-- jQuery library -->
+
+<!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<!-- <style>
-body {
-    background-image: url("img/i1.jpg");
-}
-.no-background {
-    background-image: url("images/blank.jpg");
-}
-</style>
-
-
-background="i1.jpg"
- -->
-
 
 </head>
-<body >
-<%-- <img src="<c:url value="img/Mycollabration.jpg"/>"/> --%>
+<body>
 
+<!-- ================================Home navbar============================================= -->
 
-
-<div class ="container-fluid  second_bar" style="background:#00ffff; solid; padding:20px;" >
-<div class="container">
-
-
-
-<div class="row">
-
-
- <div class="col-sm-12">
- 
-<nav class="navbar-default">
- 
- <div class="navbar-header">
- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Tnavbar">
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- </button>
- </div>
- 
- 
- 
-  <div id="Tnavbar" class="navbar-collapse collapse">
-  <%-- <ul class="nav navbar-nav ">
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li><a href="Home">Home</a></li>
-  </button>
-  <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li><a href="login" >SingIn</a></li>
-  </button>
-  <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="user" >SingUp</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="showblog" >Blog</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="Forum" >Forum</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="AboutUs" >About-us</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="showchat" >Chat</a></li>
-  </button>
-  </ul>
-  
-  
-     <div class="navbar-form navbar-right">
-              <button type="button" class="btn btn-success dropdown-toggle"  style="margin:8px">
-               <li> <a href="showprofile" >Profile  ${loginMessage}</a></li>
-               
-               
-                      <c:if test="${not empty loginMessage }"><li><a href="logout" style=" color:#fff;">Logout</a></li></c:if>
-     </div>
-  
-  
-  </div>
-   --%>
-  
-  
- <body ng-app="myApp" class="ng-cloak"  >
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+ <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
 <!--     <div class="navbar-header">
   
@@ -201,17 +128,107 @@ background="i1.jpg"
 </div>
 </nav>
 <!-- =========== -->
-</div>
-</div>
->
 
 
-<c:if test="${isUserClickedsingInPage==true}"><jsp:include page="singIn.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedsingUpPage==true}"><jsp:include page="singUp.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedBlogPage==true}"><jsp:include page="showblog.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedForumPage==true}"><jsp:include page="showforum.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedChatPage==true}"><jsp:include page="showchat.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedAboutUsPage==true}"><jsp:include page="AboutUs.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedProfilePage==true}"><jsp:include page="showprofile.jsp"></jsp:include></c:if>
+
+
+
+
+
+
+
+
+
+
+
+<!-- =====================================List of profile ==================================== -->
+<br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 style="background:#808080;"> Welcome to Forum </h1>
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+
+<!-- <table>
+  <tr ng-repeat="x in names">
+    <td>{{ x.blog_name}}</td>
+    
+  </tr>
+</table> -->
+
+
+
+
+<table>
+   <tr>
+      <th>ID</th>
+      <th>USER_ID</th>
+      <th>MESSAGE</th>
+      <th>CREATE_DATE</th>
+      <th>FORUM_NAME</th>
+      
+   </tr>
+   
+   <tr ng-repeat = "x in names">
+      <td>{{ x.id }}</td>
+      <td>{{ x.user_id }}</td>
+      <td>{{ x.message }}</td>
+      <td>{{ x.create_date }}</td>
+      <td>{{ x.forum_name }}</td>
+   </tr>
+</table>
+
+
+
+
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("http://localhost:8080/Collaboration/Forum")
+    .then(function (response) {$scope.names = response.data;});
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+
+{{ tasks }}
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+	$http.get('http://localhost:8080/Collaboration/Forum').
+    success(function(data) {
+        $scope.tasks = data;
+        
+        
+   });
+});
+</script> -->
+
 </body>
 </html>

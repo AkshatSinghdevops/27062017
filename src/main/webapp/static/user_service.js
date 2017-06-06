@@ -2,8 +2,8 @@
  
 angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $q){
  
-    var REST_SERVICE_URI = 'http://localhost:8080/Collabration/user/';
-    var REST_SERVICE_fetch_URI = 'http://localhost:8080/Collabration/users/';
+    var REST_SERVICE_URI = 'http://localhost:8080/Collaboration/user/';
+    var REST_SERVICE_fetch_URI = 'http://localhost:8080/Collaboration/users/';
     var factory = {
         fetchAllUsers: fetchAllUsers,
         createUser: createUser,

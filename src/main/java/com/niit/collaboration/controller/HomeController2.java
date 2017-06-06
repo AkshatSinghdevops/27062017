@@ -1,4 +1,4 @@
-package com.niit.collaboration.controller;
+/*package com.niit.collaboration.controller;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ import com.niit.collaboration.model.Forum;
 import com.niit.collaboration.model.User;
 
 @RestController
-public class HomeController {
+public class HomeController2 {
 	
 	@Autowired
 	private User user;
@@ -75,6 +75,13 @@ public class HomeController {
 		
 	}
 	
+	@RequestMapping(value="/Home")
+	public ModelAndView getHomepage()
+	{
+		System.out.println("inside home page");
+		return new ModelAndView("/Home");
+	}
+	
 	@RequestMapping("/login")
 	public ModelAndView showSinginPage()
 	{
@@ -83,12 +90,10 @@ public class HomeController {
 		 return mv;
 	}
 	
-	@RequestMapping("/singUp")
+	@RequestMapping("/createUser")
 	public ModelAndView showSingUpPage()
 	{
-		 ModelAndView mv = new ModelAndView("/Home");
-		 mv.addObject("isUserClickedsingUpPage", "true");
-		 return mv;
+		return new ModelAndView("createUser");
 	}
 	@RequestMapping(value="/Blog",method = RequestMethod.GET,headers="Accept=application/json")
 	public List showBlogPage()
@@ -139,7 +144,18 @@ public class HomeController {
 		 
 	}
 	
-	/*@RequestMapping("/validate")
+	
+	@RequestMapping(value="/NewFile",method = RequestMethod.GET,headers="Accept=application/json")
+	public  List showNewPage()
+	{
+		 ModelAndView mv = new ModelAndView("/Home");
+		 mv.addObject("isUserClickedProfilePage", "true");
+		
+			List<User> ist=	userDAO.list();
+		  return ist;
+		 
+	}
+	@RequestMapping("/validate")
 	public ModelAndView validateCredentials(@RequestParam("id") String id,@RequestParam("password") String pwd)
 	{
 
@@ -177,7 +193,7 @@ public class HomeController {
 		return mv;
 		
 		
-	}*/
+	}
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
 	public ModelAndView logout(HttpSession session){
 		String loggedInUserID=(String) session.getAttribute("loggedInUserID");
@@ -188,7 +204,7 @@ public class HomeController {
 		
 		user.setErrorCode("200");
 		user.setErrorMessage("you have successfully logged out");
-		return new ModelAndView("login");//new ResponseEntity<User>(user,HttpStatus.OK);
+		return new ModelAndView("Home");//new ResponseEntity<User>(user,HttpStatus.OK);
 	}
 	
 	
@@ -242,8 +258,7 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping(value="/user/",method=RequestMethod.GET
-			)
+	@RequestMapping(value="/user/",method=RequestMethod.GET)
 	public ResponseEntity<User> createUser(@RequestBody User user){
 		//logger.debug("------calling method createUser");
 		if(userDAO.get(user.getId())==null)
@@ -254,7 +269,7 @@ public class HomeController {
 					{
 						user.setErrorCode("200");
 					    user.setErrorMessage("Thanku for registration.You havesuccessfully registered");
-		       session.setAttribute("registered", user.getUsername());
+		       session.setAttribute("registered", user.getName());
 					}
 					else
 					{
@@ -283,5 +298,31 @@ public class HomeController {
 	}
 	
 	
+	@RequestMapping(value="/showblog")
+	public ModelAndView showblog(){
+		return new ModelAndView("showblog");
+		
+	}
+	
+	@RequestMapping(value="/showprofile")
+	public ModelAndView showprofile(){
+		return new ModelAndView("showprofile");
+		
+	}
+	
+	
+	@RequestMapping(value="/showchat")
+	public ModelAndView showchat(){
+		return new ModelAndView("showchat");
+		
+	}
+	
+	@RequestMapping(value="/showforum")
+	public ModelAndView showcforum(){
+		return new ModelAndView("showforum");
+		
+	}
+	
 	
 }
+*/
