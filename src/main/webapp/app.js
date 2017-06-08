@@ -81,4 +81,15 @@ collabora1.controller('cntrl',function($scope,$http){
 })
 
 
+var collabora1=angular.module('collbora1',['collaboraservice']);
+collabora1.controller('cntrl',function($scope,$http){
+	
+	var geturl="http://localhost:8080/Collaboration/AboutUs"
+		$http.get(geturl).
+	     success(function(data1) {
+	         $scope.mydata1 = data1;
+	         
+	    });
+	
+})
 

@@ -18,6 +18,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
+
 <!-- <style>
 body {
     background-image: url("img/i1.jpg");
@@ -33,8 +34,8 @@ background="i1.jpg"
 
 
 </head>
-<body >
-<%-- <img src="<c:url value="img/Mycollabration.jpg"/>"/> --%>
+<%-- <body >
+<img src="<c:url value="img/Mycollabration.jpg"/>"/>
 
 
 
@@ -61,7 +62,7 @@ background="i1.jpg"
  
  
  
-  <div id="Tnavbar" class="navbar-collapse collapse">
+  <div id="Tnavbar" class="navbar-collapse collapse"> --%>
   <%-- <ul class="nav navbar-nav ">
    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
   <li><a href="Home">Home</a></li>
@@ -101,6 +102,10 @@ background="i1.jpg"
   
   
  <body ng-app="myApp" class="ng-cloak"  >
+ 
+ 
+ 
+ 
   <nav class="navbar navbar-default navbar-fixed-top" style="background:#00ffff; solid; padding:20px;">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -108,7 +113,7 @@ background="i1.jpg"
       <a class="navbar-brand" href="#">Collaboration</a>
     </div>
    <ul class="nav navbar-nav">
-       <%
+      <%--  <%
    String user=(String)session.getAttribute("loggedInUserID"); 
    if(user==null)
    {
@@ -122,7 +127,7 @@ background="i1.jpg"
 	   out.println("<li> Welcome"+user+"</li>");
    }
    
-   %>
+   %> --%>
    
    
    
@@ -163,13 +168,36 @@ background="i1.jpg"
     </button>
     
     
+    <!-- ======================================================== -->
+         <%
+   String user=(String)session.getAttribute("loggedInUserID"); 
+   if(user==null)
+   {   
+	  
+	   
+	   out.println("<button type='button' class='btn btn-default dropdown-toggle' style='margin:8px'><li class='active'><a href='login'>Login</a></li></button>"); 
+
+	   out.println("<button type='button' class='btn btn-default dropdown-toggle' style='margin:8px'><li class='active'><a href='user'>Registration</a></li></button");
+   
+     
+   }
+   else
+   {
+	   out.println("<li class='active'><a href='logout'>Logout</a></li>");
+	  /*  out.println("<li> Welcome : " + user + "</li>"); */
+   }
+   
+   %>
     
-    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+    <!-- ========================================================= -->
+    
+    
+   <!--  <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
     <li class="active"><a href="personalchatting">Personal Chat</a></li>
     </button>
      
      <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-    <li class="active"><a href="updateprofile">Update Profile</a></li>
+    <li class="active"><a href="AboutUs">Update Profile</a></li>
     </button>
     
     <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
@@ -186,9 +214,28 @@ background="i1.jpg"
     
     <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
     <li class="active"><a href="showprofile">PROFILE-LISTS</a></li>
-   </button>
+   </button> -->
    
+
+
+
+  <div class="text-center">
+   <% 
+   String user1=(String)session.getAttribute("loggedInUserID");
+   
+   if(user1==null){}
+   else{
+	   out.println("<li> Welcome : "+ user1 +"</li>");
+   }
+   %>
+   
+   </div>
+
+
+
 </ul></div></nav>
+
+   
   
   <br><br><br>
  
@@ -208,8 +255,54 @@ background="i1.jpg"
 </div>
  <br><br><br> <br><br><br>
  
- <!--  ============================================================================== -->
  
+
+ 
+ <!--  ============================================================================== -->
+   
+ 
+ 
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox" >
+    <div class="item active" >
+      <img src="static/images/1.jpg" alt="Chania" style="width:2000px; height:300px;  margin:8px;">
+    </div>
+
+    <div class="item" >
+    <img src="static/images/java.jpg" alt="Chania" style="width:2000px; height:70px;  margin:8px;">
+    
+    </div>
+
+    <div class="item">
+      <img src="static/images/img.jpg" alt="Chania" style="width:75px;    height:75px;  margin:8px;">
+      
+      
+    </div>
+
+    <div class="item">
+      <img src="images/e.jpg" alt="Flower" style="width:2000px; height:300px;  margin:8px;">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
  
  
@@ -221,12 +314,7 @@ background="i1.jpg"
  
  
  
- 
- 
- 
- 
- 
- 
+
  
  
  
@@ -240,7 +328,7 @@ background="i1.jpg"
 <c:if test="${isUserClickedBlogPage==true}"><jsp:include page="showblog.jsp"></jsp:include></c:if>
 <c:if test="${isUserClickedForumPage==true}"><jsp:include page="showforum.jsp"></jsp:include></c:if>
 <c:if test="${isUserClickedChatPage==true}"><jsp:include page="showchat.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedAboutUsPage==true}"><jsp:include page="AboutUs.jsp"></jsp:include></c:if>
+<c:if test="${isUserClickedAboutUsPage==true}"><jsp:include page="AboutUs.html"></jsp:include></c:if>
 <c:if test="${isUserClickedProfilePage==true}"><jsp:include page="showprofile.jsp"></jsp:include></c:if>
 </body>
 </html>

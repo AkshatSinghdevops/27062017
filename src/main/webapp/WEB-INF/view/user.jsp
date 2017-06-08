@@ -242,6 +242,10 @@
               </div>
           </div></div>
          
+         
+          <a href="Image"><h4>Profile Image</h4></a>
+         
+         
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
    <script src="<c:url value='/static/app.js' />"></script>
    <script src="<c:url value='/static/user_controller.js' />"></script>

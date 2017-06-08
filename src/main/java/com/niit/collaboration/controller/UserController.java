@@ -125,12 +125,14 @@ public class UserController {
 		  return chatlist;
 	}
 	
-	@RequestMapping("/AboutUs")
-	public ModelAndView showAboutusPage()
+	@RequestMapping(value="/AboutUs",method = RequestMethod.GET,headers="Accept=application/json")
+	public List showAboutusPage()
 	{
 		 ModelAndView mv = new ModelAndView("/Home");
 		 mv.addObject("isUserClickedAboutUsPage", "true");
-		 return mv;
+		
+			List<Chat> ist=	chatDAO.list();
+		  return ist;
 	}
 	
 	@RequestMapping(value="/Profile",method = RequestMethod.GET,headers="Accept=application/json")
@@ -226,7 +228,9 @@ public class UserController {
 	System.out.println("1");
 	  		}else
 		{
-			ur.setErrorCode("200");
+			
+	  		
+	  		ur.setErrorCode("200");
 			ur.setErrorMessage("you have successfully logged in.");
 			ur.setIsonline('Y');
 			session.setAttribute("loggedInUser",ur);
@@ -304,10 +308,14 @@ public class UserController {
 		if(uid==null)
  		{
  			return new ModelAndView("singIn");
+ 			
  		}
-		ModelAndView obj=new ModelAndView("showblog");
 		
-	return obj;
+		
+		
+			return new ModelAndView("showblog");
+		
+	
 		
 	}
 	

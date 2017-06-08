@@ -166,90 +166,113 @@
 </table> -->
 
 
+ <!-- *****************======================================================************ -->
 
 
-<div class="container">
-  <h2>AddBlog</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">CreateNewBlog</button>
+<!-- <h3 class="text-danger" ng-repeat = "x in names"> Blog-Name=>{{x.blog_name}}</h3>
+<p  class="text-info" ng-repeat = "x in names"> Description=> <br> {{x.description}}</p> -->
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Blog.com</h4>
-        </div>
-        <div class="modal-body">
-        
-        
-        
-    
-        
-        
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-
- <!-- ====================================================== -->
-
-
-<!-- ============================================================ -->
-
-<h3 class="text-danger" ng-repeat = "x in names"> Blog-Name=>{{x.blog_name}}</h3>
-<p  class="text-info" ng-repeat = "x in names"> Description=> <br> {{x.description}}</p>
+<!-- *****************========================================================*********** -->
 
  
- 
- 
- 
- 
- 
- 
- 
- 
- <div class="panel panel-default">
-                <!-- Default panel contents -->
-              <div class="panel-heading"><span class="lead">List of Users </span></div>
+  <div class="panel panel-default">
+                Default panel contents
+              <div class="panel-heading"><span class="lead">List of BLOGS </span></div>
               <div class="tablecontainer">
                   <table class="table table-hover">
                       <thead>
                           <tr>
-                              <th>ID.</th>
-                              <th>UserByCreated</th>
+                              
+                             
                               <th>Blog-name</th>
-                              <th>Date</th>
-                              <td>Likes</td>
-                              <th width="20%"></th>
+                              <th>Description</th>
+                            
+                            
                           </tr>
                       </thead>
                       <tbody>
                           <tr ng-repeat="x in names">
-                              <td>{{x.id}}</td>
-                              <td>{{x.user_id}}</td>
-                              <td>{{x.blog_name}}</td>
-                              <td>{{x.create_date}}</td>
-                              <td>{{x.blog_like}}</td>
+                              
                              
-                              <td>
-                              <button type="button" ng-click="customersCtrl.edit(x.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="customersCtrl.remove(x.id)" class="btn btn-danger custom-width">Remove</button>
-                              </td>
+                              <td><h1>{{x.blog_name}}</h1></td>
+                             <td><p>{{x.description}}<p></td>
+                             
+                            <td> 
+                            
+                   
+                           <div class="container">
+  <h2></h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Comment</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">comment</h4>
+        </div>
+        <div class="modal-body"> 
+                            
+                            
+                            
+                            
+                          <div ng-app="myApp" ng-controller="CommentController">
+                        <form ng-submit="CommentController.submit()" name="myForm" class="form-horizontal">
+                      <input type="hidden" ng-model="CommentController.blogcomment.id" />
+                                 <div class="row">
+ 
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable" for="create_comment">:</label>
+                              <div class="col-md-7">
+                                  <textarea rows="7" cols="150" ng-model="CommentController.blogcomment.create_comment" id="create_comment" class="form-control input-sm">
+                                  </textarea>
+                              </div>
+                          </div>
+                      </div>
+                      
+                        <div >  
+                              <input type="submit"  value="{{CommentController.blogcomment.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid"/>
+                                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Blog</button>
+                              
+                          </div>
+                   </form>
+                      
+                      
+                         
+  
+                         </div>
+                          
+                                              <script src="<c:url value='/static/app.js' />"></script>
+      <script src="<c:url value='/static/comment_controller.js' />"></script>
+      <script src="<c:url value='/static/comment_service.js' />"></script>
+                          
+                          
+                          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                          
+                          
+                          
+                          
+                          
+               
+                          
                           </tr>
                       </tbody>
                   </table>
               </div>
           </div>
       </div>
+
+
+
 </div>
 
 
@@ -272,6 +295,13 @@ app.controller('customersCtrl', function($scope, $http) {
     };
 });
 </script>
+
+
+
+
+
+      
+
 
 
 
