@@ -14,15 +14,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.collaboration.dao.BlogCommentDAO;
+import com.niit.collaboration.model.BlogComment;
+
 @Controller
 public class ImageController {
+	
+	
+	
+	
+	@Autowired
+	BlogComment blogcomment;
+	
+	
+	@Autowired
+	BlogCommentDAO blogcommentDAO;
 	
 	
 	@Autowired
 	HttpSession session;
 	
 	
-	@RequestMapping("Image")
+	/*@RequestMapping("Image")
 	public ModelAndView Image()
 	{
 		return new ModelAndView("Image");
@@ -49,5 +62,9 @@ public class ImageController {
 		 
 		 return new ModelAndView("Home");
 	}
+	*/
+	
+	
+	
 	
 }

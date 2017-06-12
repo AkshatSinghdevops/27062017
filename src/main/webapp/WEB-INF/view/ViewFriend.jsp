@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -17,96 +18,18 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
 
 
-<!-- <style>
-body {
-    background-image: url("img/i1.jpg");
-}
-.no-background {
-    background-image: url("images/blank.jpg");
-}
-</style>
 
 
-background="i1.jpg"
- -->
 
 
 </head>
-<%-- <body >
-<img src="<c:url value="img/Mycollabration.jpg"/>"/>
 
+<body>
 
-
-<div class ="container-fluid  second_bar" style="background:#00ffff; solid; padding:20px;" >
-<div class="container">
-
-
-
-<div class="row">
-
-
- <div class="col-sm-12">
- 
-<nav class="navbar-default">
- 
- <div class="navbar-header">
- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Tnavbar">
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- </button>
- </div>
- 
- 
- 
-  <div id="Tnavbar" class="navbar-collapse collapse"> --%>
-  <%-- <ul class="nav navbar-nav ">
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li><a href="Home">Home</a></li>
-  </button>
-  <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li><a href="login" >SingIn</a></li>
-  </button>
-  <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="user" >SingUp</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="showblog" >Blog</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="Forum" >Forum</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="AboutUs" >About-us</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="showchat" >Chat</a></li>
-  </button>
-  </ul>
-  
-  
-     <div class="navbar-form navbar-right">
-              <button type="button" class="btn btn-success dropdown-toggle"  style="margin:8px">
-               <li> <a href="showprofile" >Profile  ${loginMessage}</a></li>
-               
-               
-                      <c:if test="${not empty loginMessage }"><li><a href="logout" style=" color:#fff;">Logout</a></li></c:if>
-     </div>
-  
-  
-  </div>
-   --%>
-  
-  
- <body ng-app="myApp" class="ng-cloak"  >
- 
- 
- 
- 
-  <nav class="navbar navbar-default navbar-fixed-top" style="background:#00ffff; solid; padding:20px;">
+ <nav class="navbar navbar-default navbar-fixed-top" style="background:#00ffff; solid; padding:20px;">
   <div class="container-fluid">
     <div class="navbar-header">
   
@@ -238,59 +161,60 @@ background="i1.jpg"
 
 
 </ul></div></nav>
+<br><br><br> <br><br><br>
+<br><br><br> <br><br><br>
 
-   
+
+ 
+<script>
+
+var app = angular.module('myApp',[]);
+app.controller('ctrl',function($scope,$http){
+	
+	$http.get("users").then(function(response)
+	{
+		 $scope.user = response.data;
+	});
+});
+
+</script>
+ 
+ <div ng-app="myApp" ng-controller="ctrl"> 
+
+<div class="text-center"> 
+<input type='text' ng-model='searchtext' placeholder='Search Your Friend' autofocus/><br><br>
+</div>  
   
-  <br><br><br>
+<table class="table">
+	
  
-   <br><br><br>
-  
- </div>
- 
-  
-  
-  
+		<tr>
+		<th></th>
+		<th>Name</th>
+		<th>Address</th>
+	    <th>Role</th>
+<th width="120">Sending Request</th>
+			</tr>
+			
+ <tr ng-repeat="b in user | filter:searchtext" >
+ <td><img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="60px"></td>
+<td>{{ b.name }}</td>
+<td >{{ b.address }} </td>
+<td >{{ b.role }} </td>
+ <td><a href="addFriend/{{b.id}}">Send-Request</a></td>
+  </tr>
+  </table>
 </div>
-</div>
-</div>
-</nav>
-<!-- =========== -->
-</div>
-</div>
- <br><br><br> <br><br><br>
- 
- 
-
- 
- <!--  ============================================================================== -->
-   
- 
-
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
- 
- 
- 
- 
- 
 
 
-<c:if test="${isUserClickedsingInPage==true}"><jsp:include page="singIn.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedsingUpPage==true}"><jsp:include page="singUp.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedBlogPage==true}"><jsp:include page="showblog.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedForumPage==true}"><jsp:include page="showforum.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedChatPage==true}"><jsp:include page="showchat.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedAboutUsPage==true}"><jsp:include page="AboutUs.html"></jsp:include></c:if>
-<c:if test="${isUserClickedProfilePage==true}"><jsp:include page="showprofile.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedFriendPage==true}"><jsp:include page="ViewFriend.jsp"></jsp:include></c:if>
+
+
+
+
+
+
+
+
 
 </body>
 </html>

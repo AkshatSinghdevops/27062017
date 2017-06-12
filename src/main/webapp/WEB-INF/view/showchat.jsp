@@ -152,14 +152,20 @@
 <!-- =====================================List of profile ==================================== -->
 <br><br><br>
 
+<br>
 
 
 
 
-Hello Form Chat
+
+
+
+
+
+
 <div ng-app="myApp" ng-controller="customersCtrl"> 
   <div class="container">
-  <table>
+   <table class="table table-hover">
   <thead>
   <tr>
       <th>ID</th>

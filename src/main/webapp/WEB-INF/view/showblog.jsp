@@ -1,9 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+
+<!-- ==========***************************=========================*****************************============= -->
+
+
+<!-- ===========############################################################################==================== -->
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -11,7 +17,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="resource/css/mystyle.css">
  --><!-- jQuery library -->
- <link rel="stylesheet" href="../img/i1.jpg">
+ 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
@@ -197,71 +203,19 @@
                               <td><h1>{{x.blog_name}}</h1></td>
                              <td><p>{{x.description}}<p></td>
                              
-                            <td> 
-                            
+                            <td><p class="text-info"><a href="comment"> comment</a></p></td>
+                           
                    
-                           <div class="container">
-  <h2></h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Comment</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">comment</h4>
-        </div>
-        <div class="modal-body"> 
+                           
                             
                             
                             
-                            
-                          <div ng-app="myApp" ng-controller="CommentController">
-                        <form ng-submit="CommentController.submit()" name="myForm" class="form-horizontal">
-                      <input type="hidden" ng-model="CommentController.blogcomment.id" />
-                                 <div class="row">
- 
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="create_comment">:</label>
-                              <div class="col-md-7">
-                                  <textarea rows="7" cols="150" ng-model="CommentController.blogcomment.create_comment" id="create_comment" class="form-control input-sm">
-                                  </textarea>
-                              </div>
-                          </div>
-                      </div>
                       
-                        <div >  
-                              <input type="submit"  value="{{CommentController.blogcomment.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid"/>
-                                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Blog</button>
-                              
-                          </div>
-                   </form>
-                      
-                      
-                         
-  
-                         </div>
                           
-                                              <script src="<c:url value='/static/app.js' />"></script>
-      <script src="<c:url value='/static/comment_controller.js' />"></script>
-      <script src="<c:url value='/static/comment_service.js' />"></script>
+                       
                           
                           
-                          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-                          
-                          
-                          
-                          
-                          
+          
                
                           
                           </tr>
@@ -300,12 +254,13 @@ app.controller('customersCtrl', function($scope, $http) {
 
 
 
+
       
 
 
 
-
-
+                          
+      
 
 
 </body>

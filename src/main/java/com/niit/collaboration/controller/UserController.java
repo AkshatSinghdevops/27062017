@@ -138,10 +138,14 @@ public class UserController {
 	@RequestMapping(value="/Profile",method = RequestMethod.GET,headers="Accept=application/json")
 	public  List showProfilePage()
 	{
-		 ModelAndView mv = new ModelAndView("/Home");
+		 
+		String uid = (String) session.getAttribute("loggedInUserID");
+		List<User> ist=	userDAO.list(uid);
+		
+		ModelAndView mv = new ModelAndView("/Home");
 		 mv.addObject("isUserClickedProfilePage", "true");
 		
-			List<User> ist=	userDAO.list();
+			/*List<User> ist=	userDAO.list();*/
 		  return ist;
 		 
 	}

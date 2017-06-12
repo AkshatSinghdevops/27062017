@@ -93,3 +93,16 @@ collabora1.controller('cntrl',function($scope,$http){
 	
 })
 
+
+var collabora9=angular.module('collbora9',['collaboraservice']);
+collabora9.controller('cntrl',function($scope,$http){
+	
+	var geturl="http://localhost:8080/Collaboration/comment"
+		$http.get(geturl).
+	     success(function(data1) {
+	         $scope.mydata1 = data1;
+	         
+	    });
+	
+})
+

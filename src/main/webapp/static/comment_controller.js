@@ -1,11 +1,9 @@
-'use strict'
+'use strict';
 
-angular.modul('myApp').controller('CommentController',
-		['$scope','CommentService', function($scope,CommentService)
-                                                       
-         {
-			var self= this;
-			self.blogcomment = {id:null,create_comment:'' };
+angular.module('myApp').controller('CommentController', ['$scope','CommentService', function($scope,CommentService){
+			
+	        var self= this;
+			self.blogcomment = {id:null,blog_comment:'', blog_id:'' };
 			self.blogcomments=[];
 			
 			self.submit();

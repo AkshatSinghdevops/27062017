@@ -159,12 +159,12 @@
 
 
 <!-- =====================================List of profile ==================================== -->
-<br><br><br>
+
 
    
   
  
- <div  class="generic-container text-center" ng-controller="LoginController as ctrl">
+ <div  class="generic-container" ng-controller="LoginController as ctrl">
           <div class="panel panel-default">
               <div class="panel-heading"> Login </div>
              <center>
@@ -201,6 +201,9 @@
               </div>
               </center>
           </div></div>
+          
+          
+          </div></div></div>
         
       <script src="<c:url value='/static/app.js' />"></script>
       
