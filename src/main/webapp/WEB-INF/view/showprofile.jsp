@@ -84,7 +84,7 @@ body {
                 
                 <button type="button" class="btn btn-success">
                 
-                <a href="@">MyFriends</a>
+                <a href="MyFriendList">MyFriends</a>
                 
                 </button>
             
