@@ -220,7 +220,10 @@ background="i1.jpg"
     <li class="active"><a href="ViewFriend">Friend-LISTS</a></li>
    </button>
    
-
+    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="ViewRequest">Requests</a></li>
+   </button>
+   
 
 
   <div class="text-center">
@@ -257,7 +260,7 @@ background="i1.jpg"
 <!-- =========== -->
 </div>
 </div>
- <br><br><br> <br><br><br>
+ <br><br><br>
  
  
 
@@ -288,9 +291,13 @@ background="i1.jpg"
 <c:if test="${isUserClickedBlogPage==true}"><jsp:include page="showblog.jsp"></jsp:include></c:if>
 <c:if test="${isUserClickedForumPage==true}"><jsp:include page="showforum.jsp"></jsp:include></c:if>
 <c:if test="${isUserClickedChatPage==true}"><jsp:include page="showchat.jsp"></jsp:include></c:if>
-<c:if test="${isUserClickedAboutUsPage==true}"><jsp:include page="AboutUs.html"></jsp:include></c:if>
-<c:if test="${isUserClickedProfilePage==true}"><jsp:include page="showprofile.jsp"></jsp:include></c:if>
+<%-- <c:if test="${isUserClickedAboutUsPage==true}"><jsp:include page="AboutUs.html"></jsp:include></c:if>
+ --%><c:if test="${isUserClickedProfilePage==true}"><jsp:include page="showprofile.jsp"></jsp:include></c:if>
 <c:if test="${isUserClickedFriendPage==true}"><jsp:include page="ViewFriend.jsp"></jsp:include></c:if>
+<c:if test="${isUserClickedRequest==true}"><jsp:include page="ViewRequest.jsp"></jsp:include></c:if>
+
+
+
 
 </body>
 </html>

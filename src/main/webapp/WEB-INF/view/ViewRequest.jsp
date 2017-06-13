@@ -11,57 +11,44 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
 </head>
+
 <body>
 
-
-
-
-
-
-
+<br><br>
 
 
 
 <script>
-var app = angular.module('myApp1', []);
-app.controller('ctrl1', function($scope, $http) {
-  $http.get("myFriends")
+var app = angular.module('myApp', []);
+app.controller('ctrl', function($scope, $http) {
+  $http.get("getRequestsSendToMe")
   .then(function(response) {
-      $scope.friends = response.data;
+      $scope.friend = response.data;
   });
 });
 </script>
 
 
- <div ng-app="myApp1" ng-controller="ctrl1"> 
-<table class="table">
-		<tr>
-			<th width="80">ID</th>
-			<th width="80">UserID</th>
-			<th width="80">FriendID</th>
-			<th width="80">Status</th>
-			<th width="80">IsOnline</th>
-			
-							<th width="120">For UnFriend</th>
-			</tr>
-			
- <tr ng-repeat="f in friends" >
- 
- <td >{{ f.id }} </td>
- <td>{{ f.user_id }}</td>
- <td>{{ f.friend_id }}</td>
- <td>{{ f.status }}</td>
- <td>{{ f.is_online }}</td>
 
-  <td><a href="unFriend/{{ f.friend_id }}">UnFriend</a></td>
+
+ <div ng-app="myApp" ng-controller="ctrl"> 
+<table class="tg" border="2">
+		<tr>
+			<th width="80">FriendID</th>
+			<th width="80">Accept  Request</th>
+			<th width="80">Reject  Request</th>
+		</tr>
+			
+ <tr ng-repeat="f in friend" >
+ 
+ <td >{{ f }} </td>
+ <td><a href="acceptFriend/{{ f }}">Accept  Request</a></td>
+  <td><a href="rejectFriend/{{ f }}">Reject  Request</a></td>
   </tr>
  </table>
 </div>
-
-
-
-
 
 
 

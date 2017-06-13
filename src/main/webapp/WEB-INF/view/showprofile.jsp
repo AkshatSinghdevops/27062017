@@ -50,9 +50,18 @@ body {
 
 <!-- ======================LIST OF FRIENDS & SEARCH ======================================== -->
 <div class="text-right">
+ 
+ <button type="button " class="btn btn-danger "  style="margin:8px">
+   
+   <a href="ViewRequest"> View-Requests</a>
+    
+    </button>
+ 
+ 
+ 
  <button type="button " class="btn btn-info "  style="margin:8px">
    
-   <a href="ViewFriend">Find-Friend</a>
+   <a href="ViewFriend"> Find-Friend</a>
     
     </button>
 </div>
@@ -80,8 +89,8 @@ body {
                     <span class="icon-cog icon-white"></span><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a><button href="#"><span class="icon-wrench"></span> Modify</a></li>
-                    <li><a><button href="#"><span class="icon-trash"></span> Delete</a></li>
+                    <li><button href="#"><a><span class="icon-wrench"></span> Modify</a></button></li>
+                    <li><button href="#"><span class="icon-trash"></span> Delete</button></li>
                 </ul>
             
                 
