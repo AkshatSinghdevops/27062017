@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -88,6 +89,33 @@ public class FriendController {
 		}
 		return new ResponseEntity<List>(myFriends,HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/addFriend{friend_id}",method=RequestMethod.GET)
+	public ModelAndView sendFriendRequest(@PathVariable("friend_id")String friend_id){
+		
+		
+		String LoggedInUserID = (String) session.getAttribute("loggedInUserID");
+		friend.setUser_id(LoggedInUserID);
+		friend.setFriend_id(friend_id);
+		friend.setStatus('N'); //N-new ,A- Acccept R- Reject
+	    friend.setIs_online('N');
+	    
+	    if(friendDAO.get(LoggedInUserID, friend_id)!=null){
+			// friend.setErrorCode("404");
+			// friend.setErrorMessage("you already sent the friend request");
+			 ModelAndView obj=new ModelAndView("MessagePage").addObject("successmessage", "you already sent friend request to "+friend_id);;
+			 return obj;
+		 }else{
+			 friendDAO.save(friend);
+			// friend.setErrorCode("200");
+			// friend.setErrorMessage("friend request successfull..."+friend_id);
+			 ModelAndView obj=new ModelAndView("MessagePage").addObject("successmessage", "successfully sent friend request to "+friend_id);;
+			 return obj;
+		 }    
+	
+	
+	}
+	
 	
 	
 }

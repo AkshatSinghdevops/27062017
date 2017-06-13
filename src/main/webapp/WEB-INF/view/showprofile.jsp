@@ -46,6 +46,9 @@ body {
 
 <h1 class="text-danger text-center" ng-repeat = "x in names"> Welcome  - {{x.name}} </h1>
 
+
+
+<!-- ======================LIST OF FRIENDS & SEARCH ======================================== -->
 <div class="text-right">
  <button type="button " class="btn btn-info "  style="margin:8px">
    
@@ -54,12 +57,12 @@ body {
     </button>
 </div>
 
+<!-- ================================CLOSED==================================================== -->
 
-<br><br>
-<div class="container-fluid well span6">
+<div class="container well span6" style="width:240px; height:300px;  margin:8px;">
 	<div class="row-fluid">
         <div class="span2" >
-		    <img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="60px">
+		    <img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="80px">
         </div>
         
         <div class="span8">
@@ -77,31 +80,26 @@ body {
                     <span class="icon-cog icon-white"></span><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><button href="#"><span class="icon-wrench"></span> Modify</a></li>
-                    <li><button href="#"><span class="icon-trash"></span> Delete</a></li>
+                    <li><a><button href="#"><span class="icon-wrench"></span> Modify</a></li>
+                    <li><a><button href="#"><span class="icon-trash"></span> Delete</a></li>
                 </ul>
             
                 
-                <button type="button" class="btn btn-success">
+               
+            
+            
+              </div>
+            
+             <button type="button" class="btn btn-success">
                 
                 <a href="MyFriendList">MyFriends</a>
                 
                 </button>
-            
-            
             </div>
-        </div>
     
-  
-
-
-
-
-
-
 </div>
 </div>
-
+<!-- =========================CLOSING OF PROFILE CART======================================== -->
 
 
 

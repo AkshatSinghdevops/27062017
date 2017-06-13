@@ -220,7 +220,35 @@
                               </div>
                           </div>
                       </div>
- 
+                      
+<!-- ======================================================================================= -->
+                      
+                       <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable" for="gender">Gender</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.user.gender" id="gender" class="form-control input-sm"  placeholder="Enter your gender" required/>
+                                    <input type="radio" ng-model="ctrl.user.gender" value="male">male
+                                    <input type="radio" ng-model="ctrl.user.gender" value="female">female
+                                    <input type="radio" ng-model="ctrl.user.gender" value="other">other
+                              </div>
+                          </div>
+                      </div>
+                      
+                      
+                      
+                      
+                       <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable" for="dob">DD/MM/YYYY</label>
+                              <div class="col-md-7">
+                                  <input type="date" ng-model="ctrl.user.dob" id="dob" class="form-control input-sm" placeholder="Enter your dateofbirth" required/>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      
+<!-- ================================================================================================ -->
                         <div class="row">
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="mobile">Mobile</label>
