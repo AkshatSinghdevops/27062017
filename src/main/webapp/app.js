@@ -81,18 +81,18 @@ collabora1.controller('cntrl',function($scope,$http){
 })
 
 
-/*var collabora1=angular.module('collbora1',['collaboraservice']);
+var collabora1=angular.module('collbora1',['collaboraservice']);
 collabora1.controller('cntrl',function($scope,$http){
 	
-	var geturl="http://localhost:8080/Collaboration/AboutUs"
+	var geturl="ws://localhost:8080/Collaboration/serverendpointdemo"
 		$http.get(geturl).
 	     success(function(data1) {
-	         $scope.mydata1 = data1;
+	         $scope.message = data1;
 	         
 	    });
 	
 })
-*/
+
 
 var collabora9=angular.module('collbora9',['collaboraservice']);
 collabora9.controller('cntrl',function($scope,$http){

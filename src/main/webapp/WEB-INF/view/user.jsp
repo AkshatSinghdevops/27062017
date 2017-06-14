@@ -240,7 +240,7 @@
                       
                        <div class="row">
                           <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="dob">DD/MM/YYYY</label>
+                              <label class="col-md-2 control-lable" for="dob">DateOfBirth</label>
                               <div class="col-md-7">
                                   <input type="date" ng-model="ctrl.user.dob" id="dob" class="form-control input-sm" placeholder="Enter your dateofbirth" required/>
                               </div>
