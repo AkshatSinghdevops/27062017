@@ -129,7 +129,7 @@ background="i1.jpg"
    
    %> --%>
    
-   
+   <button class="btn btn-danger" ><span class="glyphicon glyphicon-home"></span>Home </button>
    
   
       <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
@@ -183,7 +183,7 @@ background="i1.jpg"
    }
    else
    {
-	   out.println("<li class='active'><a href='logout'>Logout</a></li>");
+	   out.println("<button class='btn btn-danger'><li class='active'><a href='logout'><span class='glyphicon glyphicon-off'></span>Logout</a></li></button>");
 	  /*  out.println("<li> Welcome : " + user + "</li>"); */
    }
    
@@ -224,6 +224,10 @@ background="i1.jpg"
     <li class="active"><a href="ViewRequest">Requests</a></li>
    </button>
    
+   
+    <button type="button" class="btn btn-success dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="AboutUs"><span class="glyphicon glyphicon-envelope"></span>AboutUsChating</a></li>
+   </button>
 
 
   <div class="text-center">
@@ -265,20 +269,26 @@ background="i1.jpg"
  
 
  
- <!--  ============================================================================== -->
+<!-- ===============================--carousel--=============================================== -->
    
  
+ <%
+   
+ String user3=(String)session.getAttribute("loggedInUserID");
+ if
+ (user3==null)
+   {
+	   out.println("<jsp:include page='carousel/caro.jsp'></jsp:include>");
+   }
+   else
+   {
+	   
+   }
+ %>
+ 
+<!-- ===================================--close--============================================== -->
 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
+ <jsp:include page='carousel/caro.jsp'></jsp:include>
  
  
  
@@ -291,7 +301,7 @@ background="i1.jpg"
 <c:if test="${isUserClickedBlogPage==true}"><jsp:include page="showblog.jsp"></jsp:include></c:if>
 <c:if test="${isUserClickedForumPage==true}"><jsp:include page="showforum.jsp"></jsp:include></c:if>
 <c:if test="${isUserClickedChatPage==true}"><jsp:include page="showchat.jsp"></jsp:include></c:if>
-<%-- <c:if test="${isUserClickedAboutUsPage==true}"><jsp:include page="AboutUs.html"></jsp:include></c:if>
+<%-- <c:if test="${isUserClickedAboutUsPage==true}"><jsp:include page="AboutUs.jsp"></jsp:include></c:if>
  --%><c:if test="${isUserClickedProfilePage==true}"><jsp:include page="showprofile.jsp"></jsp:include></c:if>
 <c:if test="${isUserClickedFriendPage==true}"><jsp:include page="ViewFriend.jsp"></jsp:include></c:if>
 <c:if test="${isUserClickedRequest==true}"><jsp:include page="ViewRequest.jsp"></jsp:include></c:if>

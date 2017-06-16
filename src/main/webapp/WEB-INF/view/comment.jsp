@@ -7,64 +7,35 @@
 
 </head>
 
-<body ng-controller="customersCtrl">
+<body>
 
 
+<div class="container text-center">
+		<div class="row text-center">
+			<div class="col-md-6 col-md-offset-6 text-center">
+				<div class="panel panel-default text-center" style="background:#808080;">
+					<div class="panel-heading">
+						<h2 class="panel-title text-success">Blog-Comment</h2>
+					</div>
+					<div class="panel-body">
+				
+						
+						
+					<fieldset>
 
+  <textarea id="messagesTextArea" readonly="readonly" rows="10" cols="100" style="background:#00ffff;"></textarea>
 
+  <input type="text" id="messageText" size="50" placeholder="text here"/>
 
-<table cellpadding="2" cellspacing="2">
-
-<tr>
-<th>   ID  </th>
-<th>   USEI_ID  </th>
-
-<th>   BLOG_ID  </th>
-
-<th>   ID  </th>
-</tr>
-
-
-   
-</table>
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-
-var myapp = angular.module('myapp',[]);
-myapp.controller('customersCtrl',function($scope){
-	
-	$scope.listComment = [
-	                      
-	                      {id:'01',user_id:'niit',blog_id:'niit' }
-	                      ];
-	
-	
-});
-
-
-</script>
-
-
-
-
-
-
-<script>
-var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-    $http.get("http://localhost:8080/Collaboration/comment")
-    .then(function (response) {$scope.names = response.data;});
-});
-</script>
-
-
+  <input type="button" class="btn btn-danger" value="Send" onclick="sendMessage();"/>
+ 
+ 
+					</fieldset>
+						
+					</div>
+				</div>
+			</div>
+		</div></div>
 
 
 

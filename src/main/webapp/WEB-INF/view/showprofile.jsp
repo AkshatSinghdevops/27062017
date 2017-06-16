@@ -11,14 +11,17 @@
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
+<!-- <link rel="stylesheet" href="resource/css/mystyle.css">
+ --><!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- <style>
 body {
     background-image: url("img/i1.jpg");
@@ -71,8 +74,17 @@ body {
 <div class="container well span6" style="width:240px; height:300px;  margin:8px;">
 	<div class="row-fluid">
         <div class="span2" >
-		    <img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="80px">
-        </div>
+<!-- 		    <img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="80px">
+ -->        
+ 
+ <tr ng-repeat="x in names| filter:search">
+  <td ng-click="detailView($index)">
+     <div ng-init="gender = x.gender == 'female' ? 'static/images/female.jpg' : 'static/images/male.jpg'">
+        <img src="static/images/male.jpg" ng-src="{{gender}}" width="120px" height="60px" class="img-circle"/>
+     </div>
+ 
+ 
+ </div>
         
         <div class="span8">
             <h3 ng-repeat = "x in names">{{x.name}}</h3>

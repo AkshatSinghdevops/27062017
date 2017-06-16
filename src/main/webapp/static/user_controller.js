@@ -29,6 +29,9 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
         UserService.createUser(user)
             .then(
             fetchAllUsers,
+            function(d) {
+            alert("Thank you for registration")
+            },
             function(errResponse){
                 console.error('Error while creating User');
             }

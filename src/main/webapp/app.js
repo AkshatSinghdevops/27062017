@@ -94,7 +94,7 @@ collabora1.controller('cntrl',function($scope,$http){
 })
 
 
-var collabora9=angular.module('collbora9',['collaboraservice']);
+/*var collabora9=angular.module('collbora9',['collaboraservice']);
 collabora9.controller('cntrl',function($scope,$http){
 	
 	var geturl="http://localhost:8080/Collaboration/comment"
@@ -104,5 +104,5 @@ collabora9.controller('cntrl',function($scope,$http){
 	         
 	    });
 	
-})
+})*/
 

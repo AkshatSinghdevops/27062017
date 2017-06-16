@@ -36,6 +36,19 @@ public class CommentController {
 	
 	
 	
+	
+	
+	@RequestMapping(value="/comment")
+	public  ModelAndView getchatting()
+	{
+	  String uid=(String)session.getAttribute("loggedInUserID");
+		if(uid==null)
+ 		{
+ 			return new ModelAndView("singIn");
+ 		}
+		  return new ModelAndView("comment");
+	}
+	
 	 
 	
 	@RequestMapping(value="/comment",method = RequestMethod.GET,headers="Accept=application/json")

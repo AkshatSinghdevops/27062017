@@ -75,12 +75,7 @@ public class UserController {
 		
 	}
 	
-	/*@RequestMapping(value="/Home")
-	public ModelAndView getHomepage()
-	{
-		System.out.println("inside home page");
-		return new ModelAndView("/Home");
-	}*/
+	
 	
 	@RequestMapping("/login")
 	public ModelAndView showSinginPage()
@@ -340,6 +335,18 @@ public class UserController {
 	public ModelAndView showcforum(){
 		return new ModelAndView("showforum");
 		
+	}
+	
+	
+	@RequestMapping(value="/AboutUs")
+	public  ModelAndView getchatting()
+	{
+	  String uid=(String)session.getAttribute("loggedInUserID");
+		if(uid==null)
+ 		{
+ 			return new ModelAndView("singIn");
+ 		}
+		  return new ModelAndView("AboutUs");
 	}
 	
 	
