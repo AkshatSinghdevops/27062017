@@ -61,7 +61,15 @@ app.controller('myCtrl', function($scope) {
 });
 </script> -->
 
-
+<script>
+var app = angular.module('myApp1', []);
+app.controller('ctrl1', function($scope, $http) {
+  $http.get("myFriends")
+  .then(function(response) {
+      $scope.friends = response.data;
+  });
+});
+</script>
 
 
 
@@ -79,12 +87,27 @@ app.controller('myCtrl', function($scope) {
 <div class="well">
 
 <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Online-Users<span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="blog">Add New Blog</a></li>
-      <li><a href="showblog">Show List of Blogs</a></li>
-    </ul></li>
-     </button>
+      Online_UserList
+     <div ng-app="myApp1" ng-controller="ctrl1"> 
+<table class="table">
+		<tr>
+			
+			
+			
+			
+ <tr ng-repeat="f in friends" >
+ 
+ 
+ <td>{{ f.friend_id }}</td>
+ 
+
+  
+  </tr>
+ </table>
+</div>
+      
+      
+</button>
 
 </div>
 </div>
@@ -103,15 +126,19 @@ app.controller('myCtrl', function($scope) {
 						
 					<fieldset>
 
-<textarea id="messagesTextArea" readonly="readonly" rows="10" cols="50" style="background:#00ffff;"></textarea>
+<textarea id="messages" readonly="readonly" rows="10" cols="50" style="background:#00ffff;"></textarea>
 
 
  User_id:<input type='text' id="user"  value='<%=session.getAttribute("loggedInUserID") %>' readonly='true'/></br>
-   
+     To :<input type='text' id='to'  /> 
 
-<input type="text" id="userinput" size="50" placeholder="text here"/>
+<input type="text" id="userinput" size="50" rows='5' cols='60' placeholder="text here"/>
 
-<input type="button" class="btn btn-danger" value="Send" onclick="sendMessage();"/>
+
+
+
+ <input type="submit"
+            value="Send Message" onclick="start()" class="btn btn-danger"/>
  
  
 					</fieldset>
@@ -123,20 +150,19 @@ app.controller('myCtrl', function($scope) {
 	</div>
 </div>
 
+<!-- =============***********=========###########===========@@@@@@@@@@@@@===========&&&&&&&&&&&&&======== -->
 
 
+ 
+ 
 
 
-
-
-
-
-
+<%-- 
 <div>
          <br> 
-         <div class="panel panel-primary">
+         <div class="panel panel-default">
          <div class="panel-heading">
-         Message Board
+         <h3 class="panel-title text-success"><span class="glyphicon glyphicon-envelope"></span> Chat Box </h3>
          </div>
          <table>
          <tr>
@@ -163,9 +189,18 @@ app.controller('myCtrl', function($scope) {
     </table>
     </div>
     <input type="submit"
-            value="Send Message" onclick="start()" />
+            value="Send Message" onclick="start()" class="btn btn-danger"/>
     <div id="messages"></div>
-    </div>
+    </div> --%>
+    
+    
+<!-- =============***********=========###########===========@@@@@@@@@@@@@===========&&&&&&&&&&&&&======== -->
+    
+    
+    
+    
+    
+    
     <script type="text/javascript">
     var app = angular.module('myApp', []);
     app.controller('ctrl', function($scope, $http) {
@@ -194,13 +229,24 @@ app.controller('myCtrl', function($scope) {
         function onMessage(event) {
         var res=event.data;  
         	
-        	document.getElementById('messages').innerHTML += '<div class="panel panel-primary"><div class="panel-heading">message on <%=new java.util.Date()%> </div>'
+        	<%-- document.getElementById('messages').innerHTML += '<div class="panel panel-primary"><div class="panel-heading">message on <%=new java.util.Date()%> </div>'
                     + event.data+'</div>';
-        	document.getElementById('user').innerHTML=event.data;
+        	document.getElementById('user').innerHTML=event.data; --%>
+        	
+        	
+        	document.getElementById('messages').innerHTML += '<%=new java.util.Date()%>'
+                + event.data+'';
+    	document.getElementById('user').innerHTML=event.data;
+        	
+        	
+        	
+        	
+        	
+        	
         
         }
         function onOpen(event) {
-            document.getElementById('messages').innerHTML = 'Now Connection established';
+            document.getElementById('messages').innerHTML = ''; /* Now Connection established */
         }
 
         function onError(event) {
@@ -209,10 +255,10 @@ app.controller('myCtrl', function($scope) {
 
         function start() {
         	
-            var text = document.getElementById("userinput").value;
+                 var text = document.getElementById("userinput").value;
                 var user=document.getElementById("user").value;
                 var to=document.getElementById("to").value;
-            webSocket.send(user+","+to+","+text);
+            webSocket.send( user + " SENDING TO " + to + " ==>> " + text );
             return false;
         }
         

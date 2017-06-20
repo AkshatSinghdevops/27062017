@@ -148,7 +148,7 @@ public class FriendController {
  			 
  		 }
  		 
- 		 if(status.equals("A") || status.equals("R"))
+ 		 if(status.equals("A")||status.equals("R"))
  		 {
  			     friend=friendDAO.get(loggedInUserID,friend_id );
  			    // System.out.println(friend.getUser_id() + " : " + friend.getErrorMessage());

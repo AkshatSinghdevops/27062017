@@ -197,14 +197,19 @@ public class UserController {
 	}*/
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
 	public ModelAndView logout(HttpSession session){
+		
 		String loggedInUserID=(String) session.getAttribute("loggedInUserID");
+		
 		friendDAO.setOffLine(loggedInUserID);
+		
 		userDAO.setOffLine(loggedInUserID);
 		
 		session.invalidate();
 		
 		user.setErrorCode("200");
+		
 		user.setErrorMessage("you have successfully logged out");
+		
 		return new ModelAndView("Home");//new ResponseEntity<User>(user,HttpStatus.OK);
 	}
 	

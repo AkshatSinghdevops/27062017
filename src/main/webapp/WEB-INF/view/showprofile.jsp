@@ -54,7 +54,7 @@ body {
 <!-- ======================LIST OF FRIENDS & SEARCH ======================================== -->
 <div class="text-right">
  
- <button type="button " class="btn btn-danger "  style="margin:8px">
+ <button type="button " class="btn btn-lg btn-info "  style="margin:8px">
    
    <a href="ViewRequest"> View-Requests</a>
     
@@ -62,7 +62,7 @@ body {
  
  
  
- <button type="button " class="btn btn-info "  style="margin:8px">
+ <button type="button " class="btn btn-lg btn-default"  style="margin:8px">
    
    <a href="ViewFriend"> Find-Friend</a>
     
@@ -111,7 +111,7 @@ body {
             
               </div>
             
-             <button type="button" class="btn btn-success">
+             <button type="button" class="btn btn-outline-primary">
                 
                 <a href="MyFriendList">MyFriends</a>
                 

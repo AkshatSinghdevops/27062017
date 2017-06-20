@@ -5,6 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -18,101 +22,26 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-
-<!-- <style>
-body {
-    background-image: url("img/i1.jpg");
-}
-.no-background {
-    background-image: url("images/blank.jpg");
-}
-</style>
-
-
-background="i1.jpg"
- -->
-
-
 </head>
-<%-- <body >
-<img src="<c:url value="img/Mycollabration.jpg"/>"/>
+<%--  <body >
+<img src="<c:url value="img/Mycollabration.jpg"/>"/> --%>
 
 
-
-<div class ="container-fluid  second_bar" style="background:#00ffff; solid; padding:20px;" >
-<div class="container">
-
-
-
-<div class="row">
-
-
- <div class="col-sm-12">
- 
-<nav class="navbar-default">
- 
- <div class="navbar-header">
- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Tnavbar">
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- </button>
- </div>
- 
- 
- 
-  <div id="Tnavbar" class="navbar-collapse collapse"> --%>
-  <%-- <ul class="nav navbar-nav ">
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li><a href="Home">Home</a></li>
-  </button>
-  <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li><a href="login" >SingIn</a></li>
-  </button>
-  <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="user" >SingUp</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="showblog" >Blog</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="Forum" >Forum</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="AboutUs" >About-us</a></li>
-  </button>
-   <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-  <li> <a href="showchat" >Chat</a></li>
-  </button>
-  </ul>
   
   
-     <div class="navbar-form navbar-right">
-              <button type="button" class="btn btn-success dropdown-toggle"  style="margin:8px">
-               <li> <a href="showprofile" >Profile  ${loginMessage}</a></li>
-               
-               
-                      <c:if test="${not empty loginMessage }"><li><a href="logout" style=" color:#fff;">Logout</a></li></c:if>
-     </div>
-  
-  
-  </div>
-   --%>
-  
-  
- <body ng-app="myApp" class="ng-cloak"  >
+ <!-- <body ng-app="myApp" class="ng-cloak"  > -->
+ <body>
  
  
  
- 
-  <nav class="navbar navbar-default navbar-fixed-top" style="background:#00ffff; solid; padding:20px;">
+  <nav class="navbar navbar-default navbar-fixed-top" > <!-- style="background:#00ffff; solid; padding:20px;" -->
   <div class="container-fluid">
     <div class="navbar-header">
   
-      <a class="navbar-brand" href="#">Collaboration</a>
+      <a class="navbar-brand " href="#"><marquee>Collaboration</marquee></a>
     </div>
    <ul class="nav navbar-nav">
+  
       <%--  <%
    String user=(String)session.getAttribute("loggedInUserID"); 
    if(user==null)
@@ -129,10 +58,10 @@ background="i1.jpg"
    
    %> --%>
    
-   <button class="btn btn-danger" ><span class="glyphicon glyphicon-home"></span>Home </button>
+   <button class="btn btn-danger" ><span class="glyphicon glyphicon-home"></span><a href="Home">Home</a> </button>
    
   
-      <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+      <button type="button" class="btn btn-outline-primary dropdown-toggle"  style="margin:8px">
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Blogs<span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="blog">Add New Blog</a></li>
@@ -140,7 +69,7 @@ background="i1.jpg"
     </ul></li>
      </button>
      
-     <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
+     <button type="button" class="btn btn-outline-primary dropdown-toggle"  style="margin:8px">
   <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Friends<span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="unfriend">View Friends/Unfriend</a></li>
@@ -175,15 +104,15 @@ background="i1.jpg"
    {   
 	  
 	   
-	   out.println("<button type='button' class='btn btn-default dropdown-toggle' style='margin:8px'><li class='active'><a href='login'>Login</a></li></button>"); 
+	   out.println("<button type='button' class='btn btn-outline-primary dropdown-toggle' style='margin:8px'><li class='active'><a href='login'><span class='glyphicon glyphicon-log-in'>Sing-In</span></a></li></button>"); 
 
-	   out.println("<button type='button' class='btn btn-default dropdown-toggle' style='margin:8px'><li class='active'><a href='user'>Registration</a></li></button");
+	   out.println("<button type='button' class='btn btn-outline-primary dropdown-toggle' style='margin:8px'><li class='active'><a href='user'><span class='glyphicon glyphicon-pencil'>Sing-Up</span></a></li></button");
    
      
    }
    else
    {
-	   out.println("<button class='btn btn-danger'><li class='active'><a href='logout'><span class='glyphicon glyphicon-off'></span>Logout</a></li></button>");
+	   out.println("<button class='btn btn-outline-danger'><li class='active'><a href='logout'><span class='glyphicon glyphicon-off'></span>Logout</a></li></button>");
 	  /*  out.println("<li> Welcome : " + user + "</li>"); */
    }
    
@@ -212,8 +141,8 @@ background="i1.jpg"
     <li class="active"><a href="showchat">CHAT-LISTS</a></li>
     </button>
     
-    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-    <li class="active"><a href="showprofile">PROFILE-LISTS</a></li>
+    <button type="button" class="btn btn-outline-primary dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="showprofile"><span class="glyphicon glyphicon-user"></span>MY-PROFILE</a></li>
    </button>
    
    <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
@@ -225,10 +154,17 @@ background="i1.jpg"
    </button>
    
    
-    <button type="button" class="btn btn-success dropdown-toggle"  style="margin:8px">
+    <button type="button" class="btn btn-outline-primary dropdown-toggle"  style="margin:8px">
     <li class="active"><a href="AboutUs"><span class="glyphicon glyphicon-envelope"></span>AboutUsChating</a></li>
    </button>
+   
+   <button type="button" class="btn btn-outline-primary dropdown-toggle"  style="margin:8px">
+    <li class="active"><a href="job"><span class="glyphicon glyphicon-briefcase"></span>POST-NEW-JOB</a></li>
+   </button>
 
+  
+    
+   
 
   <div class="text-center">
    <% 
@@ -288,10 +224,13 @@ background="i1.jpg"
  
 <!-- ===================================--close--============================================== -->
 
+<marquee class="text-danger">Welcome ,Collaboration Web-Site</marquee>
+
+
  <jsp:include page='carousel/caro.jsp'></jsp:include>
  
  
- 
+    
  
  
 

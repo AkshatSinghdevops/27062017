@@ -43,11 +43,23 @@
     <li data-target="#myCarousel" data-slide-to="2"></li>
     <li data-target="#myCarousel" data-slide-to="3"></li>
   </ol>
+  
+ 
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox" >
     <div class="item active" >
-      <img src="static/images/1.jpg" alt="Chania" style="width:700px; height:300px;  margin:8px;">
+      <img src="static/images/blog.jpg" alt="Chania" style="width:700px; height:300px;  margin:8px;">
+    
+    <div class="container">
+            <div class="carousel-caption">
+          
+              <p>Note: Now in blog section create new blog and view all exiting blogs</p>
+              <p><a class="btn btn-lg btn-default" href="###" role="button">Sign up today</a></p>
+            </div>
+          </div>
+    
+    
     </div>
 
     <div class="item" >
@@ -56,7 +68,7 @@
     </div>
 
     <div class="item">
-      <img src="static/images/e1.jpg" alt="Chania" style="width:700px; height:300px;  margin:8px;">
+      <img src="static/images/chat.jpg" alt="Chania" style="width:700px; height:300px;  margin:8px;">
       
       
     </div>
