@@ -16,7 +16,20 @@
 <body>
 
 
-
+<div class="carousel-inner" role="listbox" >
+    <div class="item active" >
+      <img src="static/images/team.gif" alt="Chania" style="width:2000px; height:500px;  margin:8px;">
+    
+    <div class="container">
+            <div class="carousel-caption">
+          
+   <p><a class="btn btn-sm btn-default" href="###" role="button"> My Friends Team </a></p>           
+  
+            </div>
+          </div>
+    
+    
+    </div></div>
 
 
 

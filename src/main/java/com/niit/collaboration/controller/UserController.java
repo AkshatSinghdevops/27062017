@@ -3,6 +3,7 @@ package com.niit.collaboration.controller;
 import java.util.List;
 
 import javax.security.sasl.AuthenticationException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +24,12 @@ import com.niit.collaboration.dao.BlogDAO;
 import com.niit.collaboration.dao.ChatDAO;
 import com.niit.collaboration.dao.ForumDAO;
 import com.niit.collaboration.dao.FriendDAO;
+import com.niit.collaboration.dao.JobDAO;
 import com.niit.collaboration.dao.UserDAO;
 import com.niit.collaboration.model.Blog;
 import com.niit.collaboration.model.Chat;
 import com.niit.collaboration.model.Forum;
+import com.niit.collaboration.model.JobApplication;
 import com.niit.collaboration.model.User;
 
 @RestController
@@ -59,6 +62,10 @@ public class UserController {
 	
 	@Autowired
 	private FriendDAO friendDAO;
+	
+	
+	@Autowired
+	private JobDAO jobDAO;
 	
 	@Autowired
 	private HttpSession session;
@@ -325,6 +332,14 @@ public class UserController {
 	
 	@RequestMapping(value="/showprofile")
 	public ModelAndView showprofile(){
+		
+		
+		String uid=(String)session.getAttribute("loggedInUserID");
+		if(uid==null)
+ 		{
+ 			return new ModelAndView("singIn");
+ 			
+ 		}
 		return new ModelAndView("showprofile");
 		
 	}
@@ -353,6 +368,54 @@ public class UserController {
  		}
 		  return new ModelAndView("AboutUs");
 	}
+	
+	
+	@RequestMapping(value="/Modify",method=RequestMethod.GET)
+	public ModelAndView updateProfile(HttpServletRequest req)
+	{
+		String name=req.getParameter("name");
+		String password=req.getParameter("password");
+		String address=req.getParameter("address");
+		String email=req.getParameter("email");
+		String mobile=req.getParameter("mobile");
+		System.out.println(mobile);
+		String uid=(String)session.getAttribute("loggedInUserID");
+		User user=userDAO.getUser(uid);
+		System.out.println(user.getId());
+		user.setAddress(address);
+		System.out.println(user.getAddress());
+		user.setEmail(email);
+		user.setMobile(mobile);
+		System.out.println(user.getMobile());
+		user.setName(name);
+		System.out.println(user.getName());
+		user.setPassword(password);
+		System.out.println(user.getPassword());
+		userDAO.update(user);
+		return new ModelAndView("Home");
+	}
+	
+	
+	@RequestMapping(value="/myProfile",method=RequestMethod.GET)
+	public ResponseEntity<User> myProfile(HttpSession session){
+		String loggedInUserID=(String)session.getAttribute("loggedInUserID");
+		User user=userDAO.get(loggedInUserID);
+		if(user==null){
+		user=new User();
+		user.setErrorCode("404");
+		user.setErrorMessage("user does not exist");
+		return new ResponseEntity<User>(user,HttpStatus.OK);
+	}
+	return new ResponseEntity<User>(user,HttpStatus.OK);
+	}
+	
+	
+//============json data=====================================	
+		
+	
+	
+	
+//==========================================================	
 	
 	
 }

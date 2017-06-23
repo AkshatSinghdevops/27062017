@@ -25,17 +25,17 @@
 
 		<div class="row">
 
-			<div class="col-md-1">
-			<!-- include  category from sidebar.jsp -->
+			<!-- <div class="col-md-1">
+			include  category from sidebar.jsp
 			 
 			</div>
 
-			<div class="col-md-11">
+			<div class="col-md-11"> -->
 
 
 
 
- <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:700px; height:300px;  margin:20px;">
+ <div id="myCarousel" class="carousel slide" data-ride="carousel" >
  
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -49,7 +49,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox" >
     <div class="item active" >
-      <img src="static/images/blog.jpg" alt="Chania" style="width:700px; height:300px;  margin:8px;">
+      <img src="static/images/gip.gif" alt="Chania" style="width:2000px; height:500px;  margin:8px;">
     
     <div class="container">
             <div class="carousel-caption">
@@ -63,18 +63,21 @@
     </div>
 
     <div class="item" >
-    <img src="static/images/i1.jpg" alt="Chania" style="width:700px; height:300px;  margin:8px;">
+    <img src="static/images/team.gif" alt="Chania" style="width:2000px; height:500px;  margin:8px;">
     
     </div>
 
     <div class="item">
-      <img src="static/images/chat.jpg" alt="Chania" style="width:700px; height:300px;  margin:8px;">
+      <img src="static/images/chat.jpg" alt="Chania" style="width:2000px; height:500px;  margin:8px;">
       
-      
+       <div class="container">
+            <div class="carousel-caption">
+      <p>chating with us and create your own forum</p>
+      </div></div>
     </div>
 
     <div class="item">
-      <img src="static/images/Mycollabration.jpg" alt="Flower" style="width:700px; height:300px;  margin:8px;">
+      <img src="static/images/Mycollabration.jpg" alt="Flower" style="width:2000px; height:500px;  margin:8px;">
     </div>
   </div>
 

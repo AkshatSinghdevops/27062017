@@ -38,16 +38,19 @@ public class CommentController {
 	
 	
 	
-	@RequestMapping(value="/comment")
-	public  ModelAndView getchatting()
-	{
-	  String uid=(String)session.getAttribute("loggedInUserID");
-		if(uid==null)
- 		{
- 			return new ModelAndView("singIn");
- 		}
-		  return new ModelAndView("comment");
-	}
+	  String blogno;
+	  @RequestMapping(value="comment")
+		public  ModelAndView getcomments(@RequestParam("blogid") String blogid)
+		{
+		  blogno=blogid;
+		  String uid=(String)session.getAttribute("loggedInUserID");
+			if(uid==null)
+	 		{
+	 			return new ModelAndView("singIn");
+	 		}
+		  
+			  return new ModelAndView("comment");
+		}
 	
 	 
 	
@@ -61,25 +64,24 @@ public class CommentController {
 		 return list;
 	}
 	
-	@RequestMapping(value="/commentlist",method=RequestMethod.GET)
-	public ResponseEntity<java.util.List> listComment(Model model)
+	@RequestMapping(value="/addforumcomment",method=RequestMethod.POST)
+	public ResponseEntity<BlogComment> createcomment(@RequestBody BlogComment comment)
 	{
-		 String id=(String)session.getAttribute("loggedInUserID");
-		   return new ResponseEntity(blogcommentDAO.commentlist(id),HttpStatus.OK);
+		
+ String id=(String)session.getAttribute("loggedInUserID");
+  comment.setUser_id(id);
+  comment.setBlog_comment(blogno);
+  comment.setComment_date(new java.util.Date());
+
+		if( comment.getId()==null)
+		{
+			blogcommentDAO.save(comment);
+		}
+		
+		return new ResponseEntity<BlogComment>(comment,HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/addcomment",method=RequestMethod.POST)
-	public ResponseEntity<BlogComment> createComment(@RequestBody BlogComment blogcomment)
-	{
-		 String id=(String)session.getAttribute("loggedInUserID");
-		 blogcomment.setUser_id(id);
-		 blogcomment.setComment_date(new java.util.Date());
-	  if(blogcomment.getId()==null)
-	  {
-		  blogcommentDAO.save(blogcomment);
-	  }
-		 
-		return new ResponseEntity<BlogComment>(blogcomment,HttpStatus.OK);//"blog added success fully";
-		}
-
+	
+	
+	
 }

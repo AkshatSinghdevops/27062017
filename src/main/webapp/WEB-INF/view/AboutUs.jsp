@@ -62,9 +62,9 @@ app.controller('myCtrl', function($scope) {
 </script> -->
 
 <script>
-var app = angular.module('myApp1', []);
+var app = angular.module('app', []);
 app.controller('ctrl1', function($scope, $http) {
-  $http.get("myFriends")
+  $http.get("myFriends")  /* myFriends */
   .then(function(response) {
       $scope.friends = response.data;
   });
@@ -87,8 +87,8 @@ app.controller('ctrl1', function($scope, $http) {
 <div class="well">
 
 <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-      Online_UserList
-     <div ng-app="myApp1" ng-controller="ctrl1"> 
+      UserList
+     <div ng-app="app" ng-controller="ctrl1"> 
 <table class="table">
 		<tr>
 			
@@ -98,7 +98,7 @@ app.controller('ctrl1', function($scope, $http) {
  <tr ng-repeat="f in friends" >
  
  
- <td>{{ f.friend_id }}</td>
+ <td> Index-No. => {{$index}} & Name => {{ f.friend_id }}</td>
  
 
   

@@ -139,7 +139,7 @@ public class FriendController {
 	
  	private Friend updateRequest(String friend_id,String status)
  	{
- 		 String loggedInUserID = (String) session.getAttribute("loggedInUseID");
+ 		 String loggedInUserID = (String) session.getAttribute("loggedInUserID");
  		 
  		 if(isFriendRequestAvailable(friend_id)==false)
  		 {

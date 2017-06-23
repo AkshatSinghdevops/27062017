@@ -6,12 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
 
 
-<h1>
-${successmessage}
-</h1>
+
+<body ng-app="myApp" class="ng-cloak"  >
+
+<%
+  String str=(String)request.getAttribute("successmessage");
+  if(str!=null)
+  {
+	  out.println(str);
+  }
+  %>
 
 
 
