@@ -201,6 +201,9 @@
 
 
 
+<img src="static/images/create.gif" alt="Chania" style="width:1000px; height:200px;  margin:8px;">
+
+
 
 <!-- =====================================List of profile ==================================== -->
 

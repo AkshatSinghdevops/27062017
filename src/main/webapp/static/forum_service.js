@@ -1,43 +1,43 @@
 'use strict';
  
-angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $q){
+angular.module('myApp').factory('ChatForumService', ['$http', '$q', function($http, $q){
  
-    var REST_SERVICE_URI = 'http://localhost:8080/Collaboration/user/';
-    var REST_SERVICE_fetch_URI = 'http://localhost:8080/Collaboration/users/';
+    var REST_SERVICE_URI = 'http://localhost:8080/Collaboration/addforum/';
+    var REST_SERVICE_update_URI = 'http://localhost:8080/Collaboration/manage_chat_forum/';
+    var REST_SERVICE_fetch_URI = 'http://localhost:8080/Collaboration/list_chat_forum/';
     var factory = {
-        fetchAllUsers: fetchAllUsers,
-        createUser: createUser,
-        updateUser:updateUser,
+        fetchAllChatForums: fetchAllChatForums,
+        createChatForum: createChatForum,
+        updateChatForum:updateChatForum,
     
     };
  
     return factory;
  
-    function fetchAllUsers() {
+    function fetchAllChatForums() {
         var deferred = $q.defer();
         $http.get(REST_SERVICE_fetch_URI)
             .then(
             function (response) {
                 deferred.resolve(response.data);
-                /*alert(response.data);*/
             },
             function(errResponse){
-                console.error('Error while fetching Users');
+                console.error('Error while fetching ChatForums');
                 deferred.reject(errResponse);
             }
         );
         return deferred.promise;
     }
  
-    function createUser(user) {
+    function createChatForum(chatforum) {
         var deferred = $q.defer();
-        $http.post(REST_SERVICE_URI, user)
+        $http.post(REST_SERVICE_URI, chatforum)
             .then(
             function (response) {
                 deferred.resolve(response.data);
             },
             function(errResponse){
-                console.error('Error while creating User');
+                console.error('Error while creating ChatForum');
                 deferred.reject(errResponse);
             }
         );
@@ -45,15 +45,15 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
     }
  
  
-    function updateUser(user, id) {
+    function updateChatForum(chatforum, id) {
         var deferred = $q.defer();
-        $http.put(REST_SERVICE_URI+id, user)
+        $http.post(REST_SERVICE_update_URI+id, chatforum)
             .then(
             function (response) {
                 deferred.resolve(response.data);
             },
             function(errResponse){
-                console.error('Error while updating User');
+                console.error('Error while updating ChatForum');
                 deferred.reject(errResponse);
             }
         );

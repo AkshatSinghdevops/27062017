@@ -1,65 +1,44 @@
 'use strict';
  
-angular.module('myApp').factory('CommentService', ['$http', '$q', function($http, $q){
+angular.module('myApp').factory('MessageForumService', ['$http', '$q', function($http, $q){
  
-    var REST_SERVICE_URI = 'http://localhost:8080/Collaboration/list_forum_comment/';
-    var REST_SERVICE_update_URI = 'http://localhost:8080/Collaboration/manage_forum_comment/';
-    var REST_SERVICE_create_URI = 'http://localhost:8080/Collaboration/addforumcomment/';
+    var REST_SERVICE_URI = 'http://localhost:8080/Collaboration/addMessageforum/';
+    var REST_SERVICE_fetch_URI = 'http://localhost:8080/Collaboration/list_message_forum/';
     var factory = {
-        fetchAllComments: fetchAllComments,
-        createComment: createComment,
-        updateComment:updateComment,
-    
+        fetchAllMessageForums: fetchAllMessageForums,
+        createMessageForum: createMessageForum,
+       
     };
  
     return factory;
  
-    function fetchAllComments() {
+    function fetchAllMessageForums() {
         var deferred = $q.defer();
-        $http.get(REST_SERVICE_URI)
+        $http.get(REST_SERVICE_fetch_URI)
             .then(
             function (response) {
                 deferred.resolve(response.data);
             },
             function(errResponse){
-                console.error('Error while fetching Comments');
+                console.error('Error while fetching MessageForums');
                 deferred.reject(errResponse);
             }
         );
         return deferred.promise;
     }
  
-    function createComment(comment) {
+    function createMessageForum(messageforum) {
         var deferred = $q.defer();
-        $http.post(REST_SERVICE_create_URI, comment)
+        $http.post(REST_SERVICE_URI, messageforum)
             .then(
             function (response) {
                 deferred.resolve(response.data);
             },
             function(errResponse){
-                console.error('Error while creating Comment');
+                console.error('Error while creating MessageForum');
                 deferred.reject(errResponse);
             }
         );
         return deferred.promise;
     }
- 
- 
-    function updateComment(comment, id) {
-        var deferred = $q.defer();
-        $http.put(REST_SERVICE_update_URI+id, comment)
-            .then(
-            function (response) {
-                deferred.resolve(response.data);
-            },
-            function(errResponse){
-                console.error('Error while updating Comment');
-                deferred.reject(errResponse);
-            }
-        );
-        return deferred.promise;
-    }
- 
-   
- 
 }]);

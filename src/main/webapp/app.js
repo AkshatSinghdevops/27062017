@@ -94,16 +94,16 @@ collabora1.controller('cntrl',function($scope,$http){
 })
 
 
-/*var collabora9=angular.module('collbora9',['collaboraservice']);
-collabora9.controller('cntrl',function($scope,$http){
+var collabora9=angular.module('ctrl',['collaboraservice']);
+collabora9.controller('ctrl',function($scope,$http){
 	
-	var geturl="http://localhost:8080/Collaboration/comment"
+	var geturl="http://localhost:8080/Collaboration/viewappliedprofile"
 		$http.get(geturl).
 	     success(function(data1) {
 	         $scope.mydata1 = data1;
 	         
 	    });
 	
-})*/
+})
 
 

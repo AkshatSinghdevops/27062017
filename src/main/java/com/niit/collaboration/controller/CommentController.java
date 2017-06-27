@@ -54,7 +54,7 @@ public class CommentController {
 	
 	 
 	
-	@RequestMapping(value="/comment",method = RequestMethod.GET,headers="Accept=application/json")
+	/*@RequestMapping(value="/comment",method = RequestMethod.GET,headers="Accept=application/json")
 	public List showcommentPage()
 	{
 		 ModelAndView mv = new ModelAndView("/comment");
@@ -82,6 +82,6 @@ public class CommentController {
 	}
 	
 	
-	
+	*/
 	
 }

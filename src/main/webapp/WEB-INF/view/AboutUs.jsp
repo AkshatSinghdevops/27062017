@@ -82,7 +82,12 @@ app.controller('ctrl1', function($scope, $http) {
 
 
 <!-- ========================================================================================= -->
-<div class="col-md-4">
+
+<img src="static/images/onlinechat.gif" alt="Chania" style="width:1000px; height:200px;  margin:8px;">
+
+
+
+<!-- <div class="col-md-4">
 
 <div class="well">
 
@@ -98,8 +103,8 @@ app.controller('ctrl1', function($scope, $http) {
  <tr ng-repeat="f in friends" >
  
  
- <td> Index-No. => {{$index}} & Name => {{ f.friend_id }}</td>
- 
+ <td>{{ f.friend_id }}</td>
+ <td>{{ f.is_online }}</td>
 
   
   </tr>
@@ -111,7 +116,7 @@ app.controller('ctrl1', function($scope, $http) {
 
 </div>
 </div>
-
+ -->
 
 <div class="container text-center">
 		<div class="row text-center">

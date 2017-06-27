@@ -76,11 +76,13 @@ public class JobController {
 	
 	@RequestMapping(value="/postAJob",method=RequestMethod.POST)
 	public ResponseEntity<Job> postAJob(@RequestBody Job job ){
-	//	String loggedInUserRole=(String) httpSession.getAttribute("loggedInUserRole");
-		//if(loggedInUserRole=="Admin")
-		System.out.println("***********************************");
+	
+		
+		
 		System.out.println(job.getDateTime());
+		
 		String loggedInUserRole=(String) httpSession.getAttribute("loggedInUserRole");
+		
 		System.out.println(loggedInUserRole);
 		job.setStatus('V');  //V-vacant,F-filled,p-pending
 		if(jobDAO.save(job)==false){
@@ -160,10 +162,18 @@ public class JobController {
 	}
 	
 	
-	
-	
-	
-	
+	@RequestMapping(value="/viewappliedprofile/{jobID}",method = RequestMethod.GET,headers="Accept=application/json")
+	public  List showPage(@PathVariable("jobID") String jobID)
+	{
+		 ModelAndView mv = new ModelAndView("/Home");
+		 mv.addObject("isUserClickedProfilePage", "true");
+		
+			
+			List<JobApplication> job=jobDAO.getJobApplication1(Long.parseLong(jobID.trim()));
+
+		  return job;
+		 
+	}
 	
 	@RequestMapping(value="/getJobdetails/{jobID}",method=RequestMethod.GET)
 	public ResponseEntity<List<User>> getJobDetails(@PathVariable("jobID") String jobID){
@@ -173,9 +183,11 @@ public class JobController {
 		for(JobApplication j:job)
 		{
 		  String userid=j.getUserID();
-		 User user=  userdao.get(userid);
-		   userlist.add(user);
+		 User user= (User) userdao.get(userid);
+		 userlist.add(user); 
+		 System.out.println(userlist);
 		}
+		
     	return new ResponseEntity<List<User>>(userlist,HttpStatus.OK);
 	}
 //==================================================================================================	

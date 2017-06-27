@@ -38,33 +38,54 @@ app.controller('ctrl', function($scope, $http) {
 </head>
 <body>
 
+<div class="contanier">
+<div class="row">
+<div class="col-sm-6">
 
+<h3><a href="logout">LOGOUT</a></h3>
+
+</div>
+
+
+</div>
+
+</div>
 
 
 <div ng-app="myApp" ng-controller="ctrl"> 
+
+
+
+
+<div class="text-center">
+
+<h2 class="text-success">Users Who Applied For Job</h2>
+<p> This is Admin Page </p>
+</div>
+
 <br>
-Search Your Friend: <input type='text' ng-model='searchtext'/><br><br>
+Search : <input type='text' ng-model='searchtext' style="background:color:red;"/><br><br>
 <br><br><br>
 
 <table class="table">
 		<tr class="danger">
-			<th width="80">UserID</th>
-			<th width="80">Name</th>
+			<th width="80" class="text-danger">UserID</th>
+			<th width="80" class="text-danger">Name</th>
 			
-				<th width="80">Email</th>
-					<th width="80">Address</th>
-						<th width="80">MobileNo.</th>
-						<th width="80">Interview</th>
-						<th width="80">Reject</th>
-						<th width="80">Select</th>
+				<th width="80" class="text-danger">Email</th>
+					<th width="80" class="text-danger">Address</th>
+						<th width="80" class="text-danger">MobileNo.</th>
+						<th width="80" class="text-danger">Interview</th>
+						<th width="80" class="text-danger">Reject</th>
+						<th width="80" class="text-danger">Select</th>
 					</tr>
 			
  <tr ng-repeat="b in user | filter:searchtext" class="warning">
  
- <td >{{ b.id }} </td>
- <td>{{ b.userID }}</td>
-  <td >{{ b.email }} </td>
-   <td >{{ b.address }} </td>
+ <td class="text-danger">{{ b.id }} </td>
+ <td class="text-warning">{{ b.name }}</td>
+  <td class="text-info">{{ b.email }} </td>
+   <td class="text-success">{{ b.address }} </td>
     <td >{{ b.mobile }} </td>
     <script>
     function seturl(){
@@ -83,10 +104,14 @@ Search Your Friend: <input type='text' ng-model='searchtext'/><br><br>
         a.href=a.href+"/"+param+"/selected";
         }
     </script>
-   <td><a id="applied" href="callForInterview/{{ b.id }}" onclick='seturl()'>Call For Interview</a>
+<td><a id="applied" href="callForInterview/{{ b.id }}" onclick='seturl()'>Call For Interview</a>
+
  <td><a id="applied1" href="rejectJobApplication/{{ b.id }}" onclick='setrejecturl()'>Reject</a></td>
+
   <td><a id="applied2" href="selectUser/{{ b.id }}" onclick='setselecturl()'>Selected</a></td>
+
   </tr>
+
  </table>
 </div>
 

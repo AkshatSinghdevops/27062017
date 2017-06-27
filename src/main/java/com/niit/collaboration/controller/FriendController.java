@@ -227,7 +227,7 @@ public class FriendController {
  			
  	    	updateRequest(friend_id,"U");
  			
- 	    	return new ModelAndView("ErrorPage");
+ 	    	return new ModelAndView("ErrorPage").addObject("successmessage", "friend request unfriend for "+friend_id);
  		}
  	      
  	      

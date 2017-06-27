@@ -63,7 +63,7 @@
     </div>
 
     <div class="item" >
-    <img src="static/images/team.gif" alt="Chania" style="width:2000px; height:500px;  margin:8px;">
+    <img src="static/images/art.gif" alt="Chania" style="width:2000px; height:500px;  margin:8px;">
     
     </div>
 

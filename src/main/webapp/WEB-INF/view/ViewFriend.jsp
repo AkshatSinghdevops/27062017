@@ -222,7 +222,7 @@ Hide-Role : <input type="checkbox" ng-model="hideRole" placeholder="ClickedHere"
 <table class="table">
 	
  
-		<tr>
+		<tr class="warning">
 		<th></th>
 		
 		<th class="text-warning">Name</th>
@@ -236,7 +236,7 @@ Hide-Role : <input type="checkbox" ng-model="hideRole" placeholder="ClickedHere"
 <th width="120" class="text-warning">Sending Request</th>
 			</tr>
 			
- <tr ng-repeat="b in user | filter:searchtext" class="info">
+ <tr ng-repeat="b in user | filter:searchtext" class="warning">
  <td><img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="60px"></td>
 
 <td class="text-success">{{ b.name }}</td>

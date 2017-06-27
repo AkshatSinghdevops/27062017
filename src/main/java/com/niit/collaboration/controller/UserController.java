@@ -345,9 +345,9 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value="/showchat")
+	@RequestMapping(value="/createForum")
 	public ModelAndView showchat(){
-		return new ModelAndView("showchat");
+		return new ModelAndView("createForum");
 		
 	}
 	

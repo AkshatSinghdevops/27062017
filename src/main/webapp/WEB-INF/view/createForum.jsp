@@ -22,9 +22,14 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="<c:url value='/static/app.js'/>"></script>
+<script src="<c:url value='/static/forum_controller.js'/>"></script>
+<script src="<c:url value='/static/forum_service.js'/>"></script>
+
 </head>
 
-<body>
+<body ng-app="myApp" class="ng-cloak">
 
 
 
@@ -98,7 +103,7 @@
     </button>
     
     <button type="button" class="btn btn-default dropdown-toggle"  style="margin:8px">
-    <li class="active"><a href="showchat">CHAT-LISTS</a></li>
+    <li class="active"><a href="createForum">Create-Forum</a></li>
     </button>
     
     
@@ -172,31 +177,42 @@
 </ul></div></nav>
 
    
+  <!--  </div></div></div></div></nav></div></div> -->
   
   
-  
- </div>
- 
-  
-  
-  
-</div>
-</div>
-</div>
-</nav>
-<!-- =========== -->
-</div>
-</div>
+
+ <br><br><br><br><br>
  <br><br><br><br>
-  
 
 
-<!-- =====================================List of profile ==================================== -->
-<br><br><br>
+<!-- =====================================Strat your Funsanality ==================================== -->
 
-<br>
+<div class="generic-container" ng-controller="ChatForumController as ctrl">
+          <div class="panel panel-default">
+              <div class="panel-heading"><span class="lead">Forum</span></div>
+            <br>  <div class="formcontainer">
+                  <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+                     <input type="hidden" ng-model="ctrl.chatforum.id" />
+     
+                      <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable" for="forumName">Forum Title:</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.chatforum.forum_name" id="forumName" class="forumName form-control input-sm" placeholder="Enter forumName" required />
+                              </div>
+                          </div>
+                      </div>
+                   
+                       <div class="row">
+                          <div class="form-actions floatRight text-center">
+                              <input type="submit"  value="{{!ctrl.chatforum.id ? 'Add' : 'Update'}}" class="btn btn-default btn-sm" ng-disabled="myForm.$invalid">
+                              <button type="button" ng-click="ctrl.reset()" class="btn btn-default btn-sm" ng-disabled="myForm.$pristine">Reset</button>
+                          </div>
+                      </div>
+                  </form>
+                  
+                 </div></div></div>
 
-hello
 
 
 
@@ -204,6 +220,7 @@ hello
 
 
 
+<!-- ====================================================================================================== -->
 <!-- <div ng-app="myApp" ng-controller="customersCtrl"> 
   <div class="container">
    <table class="table table-hover">
@@ -242,7 +259,7 @@ app.controller('customersCtrl', function($scope, $http) {
 </script>
    -->
   
-        <script src="<c:url value='/WEB-INF/app.js' />"></script>
+        
   
 </body>
 </html>
